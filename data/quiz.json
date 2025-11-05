@@ -2,69 +2,67 @@
   "themes": {
     "music": [
       {
-      "id": 1,
-      "image-src": "",
-      "question": "How many symphonies have Beethoven written?",
-      "options": ["7", "9", "11", "13"],
-      "answer": 1
-    },
-    {
-      "id": 2,
-      "image-src": "",
-      "question": "",
-      "options": [],
-      "answer": 1
-    }
-  ],
-  "movies": [
-    {
-     "id": 2,
-      "image-src": "",
-      "question": "",
-      "options": [],
-      "answer": 1
-    },
-     {
-      "id": 2,
-      "image-src": "",
-      "question": "",
-      "options": [],
-      "answer": 1
-    }
-  ],
-  "geography": [
-    {
-     "id": 2,
-      "image-src": "",
-      "question": "",
-      "options": [],
-      "answer": 1
-    },
-     {
-      "id": 2,
-      "image-src": "",
-      "question": "",
-      "options": [],
-      "answer": 1
-    }
-  ],
-  "christmas": [
-    {
-     "id": 2,
-      "image-src": "",
-      "question": "",
-      "options": [],
-      "answer": 1
-    },
-     {
-      "id": 2,
-      "image-src": "",
-      "question": "",
-      "options": [],
-      "answer": 1
-    }
-  ]
+        "id": 1,
+        "image-src": "",
+        "question": "How many symphonies have Beethoven written?",
+        "options": ["7", "9", "11", "13"],
+        "answer": 1
+      },
+      {
+        "id": 2,
+        "image-src": "How many songs have Moa written?",
+        "question": "",
+        "options": ["2", "49", "500", "0"],
+        "answer": 3
+      }
+    ],
+    "movies": [
+      {
+        "id": 2,
+        "image-src": "",
+        "question": "",
+        "options": [],
+        "answer": 1
+      },
+      {
+        "id": 2,
+        "image-src": "",
+        "question": "",
+        "options": [],
+        "answer": 1
+      }
+    ],
+    "geography": [
+      {
+        "id": 2,
+        "image-src": "",
+        "question": "",
+        "options": [],
+        "answer": 1
+      },
+      {
+        "id": 2,
+        "image-src": "",
+        "question": "",
+        "options": [],
+        "answer": 1
+      }
+    ],
+    "christmas": [
+      {
+        "id": 2,
+        "image-src": "",
+        "question": "",
+        "options": [],
+        "answer": 1
+      },
+      {
+        "id": 2,
+        "image-src": "",
+        "question": "",
+        "options": [],
+        "answer": 1
+      }
+    ]
+  }
 }
-}
-  
-  

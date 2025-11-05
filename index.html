@@ -9,13 +9,20 @@
   </head>
   <body>
     <div class="main-container">
-      <div class="name-container">
+      <div class="view-container active" id="name-container">
         <h2>Name container</h2>
+
         <form class="name">
-          <input type="text" placeholder="Write your name" />
+          <input
+            type="text"
+            placeholder="Write your name"
+            id="name-input-field"
+          />
+          <button type="submit" id="name-input-button">OK</button>
         </form>
       </div>
-      <div class="theme-container">
+      <div class="view-container" id="theme-select-container">
+        <h3 id="name-display">test</h3>
         <h2>Theme container</h2>
         <div class="theme-music-container">
           <button id="theme-music">Music</button>
@@ -31,12 +38,18 @@
         </div>
       </div>
 
-      <div class="quiz-container">
+      <div class="quiz-container" id="quiz-container">
         <h2>Quiz container</h2>
-        <ul class="quiz-list" id="quiz-list"></ul>
+        <div id="answer-check-display" class="answer-check-label"></div>
+        <a
+          href="#"
+          id="next-question-button"
+          class="next-question-button hidden"
+          >Nästa fråga</a
+        >
       </div>
 
-      <div class="results-container">
+      <div class="results-container view-container">
         <h2>Results container</h2>
         <button>Start a new quiz</button>
       </div>

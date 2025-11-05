@@ -5,3 +5,35 @@
   border: 1px solid gray;
   margin-bottom: 50px;
 }
+
+.view-container {
+  display: none;
+}
+
+.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.answer-check-label {
+}
+
+span.correct {
+  color: green;
+}
+
+span.incorrect {
+  color: red;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.next-question-button {
+  padding: 10px;
+  background-color: gray;
+  border: 1px solid black;
+  color: black;
+  display: inline-block;
+}

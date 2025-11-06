@@ -1,3 +1,5 @@
+//SÄTTER VARIABLER FÖR DOM-ELEMENT
+
 const themeMusicButton = document.getElementById("theme-music");
 const themeMoviesButton = document.getElementById("theme-movies");
 const themeGeographyButton = document.getElementById("theme-geography");
@@ -6,6 +8,7 @@ const themeChristmasButton = document.getElementById("theme-christmas");
 const nameView = document.getElementById("name-container");
 const themeSelectView = document.getElementById("theme-select-container");
 const quizView = document.getElementById("quiz-container");
+const resultsView = document.getElementById("results-container");
 
 const nameInputField = document.getElementById("name-input-field");
 const nameInputBtn = document.getElementById("name-input-button");
@@ -15,6 +18,17 @@ const answerCheckDisplay = document.getElementById("answer-check-display");
 
 const nextQuestionBtn = document.getElementById("next-question-button");
 
+const playerScore = document.getElementById("player-score");
+
+const restartBtn = document.getElementById("restart-button");
+
+///////////////////////
+
+/////SÄTTER DEFAULT VÄRDEN FÖR INDEXEN FÖR FRÅGORNA OCH POÄNG
+let questionIndex = -1;
+let playerPoints = 0;
+
+///STYR VAD KNAPPEN SKA GÖRA I NAMN CONTAINERN
 nameInputBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const playerName = nameInputField.value.trim() || "Player"; //Tar bort empy spaces (AI)
@@ -23,9 +37,8 @@ nameInputBtn.addEventListener("click", function (e) {
   nameDisplay.textContent = `Welcome ${playerName}!`;
 });
 
-themeMusicButton.addEventListener("click", startQuiz);
-
-async function startQuiz() {
+///LADDAR IN DATAN FRÅN JSON-FILEN
+async function fetchQuiz(themeChoice) {
   try {
     const response = await fetch("/data/quiz.json");
 
@@ -34,47 +47,99 @@ async function startQuiz() {
     }
 
     const data = await response.json();
-
-    displayQuiz(data.themes);
-
-    console.log("Inne i asynkrona funktion getTodos()");
+    // Use the themeChoice to select the correct theme array
+    const selectedTheme = data.themes[themeChoice];
+    console.log(`Loading ${themeChoice} theme:`, selectedTheme);
+    displayQuiz(selectedTheme);
   } catch (error) {
     console.error("Type of error", error);
   }
 }
 
+///DET HÄR GJORDE AI - EVENTLYSSNARE FÖR TEMAVAL-KNAPPARNA (VARFÖR WRAPPA FUNKTION I FUNKTION???)
+// Add click handlers - pass the theme name as a string and wrap fetchQuiz in a function
+themeMusicButton.addEventListener("click", () => fetchQuiz("music"));
+themeGeographyButton.addEventListener("click", () => fetchQuiz("geography"));
+themeMoviesButton.addEventListener("click", () => fetchQuiz("movies"));
+themeChristmasButton.addEventListener("click", () => fetchQuiz("christmas"));
+
+///VISA VALT TEMA I QUIZ CONTAINERN (SKAPAR ELEMENT FÖR FRÅGOR OCH SVARSKNAPPAR)
 function displayQuiz(themes) {
-  const p = document.createElement("p");
-  p.innerHTML = `${themes.music[0].question}`;
-  quizView.appendChild(p);
+  console.log("themes received:", themes);
 
-  let options = themes.music[0].options;
-  let correctIndex = themes.music[0].answer;
+  const arrLength = themes.length;
+  console.log(arrLength);
 
+  themeSelectView.classList.remove("active");
+  quizView.classList.add("active");
+  questionIndex++;
+  quizView.innerHTML = "";
+  console.log("nu visas fråga nummer:" + questionIndex);
+
+  const questionText = document.createElement("p");
+  questionText.innerHTML = `${themes[questionIndex].question}`;
+  quizView.appendChild(questionText);
+
+  let answerCheck = document.createElement("p");
+  answerCheck.innerHTML = ``;
+  quizView.appendChild(answerCheck);
+
+  let nextBtn = document.createElement("button");
+  nextBtn.innerHTML = `Next question`;
+  quizView.appendChild(nextBtn);
+
+  ////NÄSTA-KNAPP EFTER VARJE FRÅGA
+  ////IFALL MAN NÅTT GRÄNSEN PÅ ANTAL FRÅGOR SÅ STOPPAR DEN OCH VISAR RESULTS
+  nextBtn.addEventListener("click", function () {
+    if (questionIndex < arrLength - 1) {
+      displayQuiz(themes);
+    } else {
+      quizView.classList.remove("active");
+      resultsView.classList.add("active");
+      playerScore.innerHTML = `Total score ${playerPoints}`;
+      questionIndex = -1;
+    }
+  });
+
+  let options = themes[questionIndex].options;
+  let correctIndex = themes[questionIndex].answer;
+
+  ////LOOP SOM SKAPAR EN KNAPP FÖR VARJE SVARSALTERNATIV
   options.forEach((option, idx) => {
     let btn = document.createElement("button");
     btn.innerHTML = `${option}`;
+    btn.classList.add("answer-button");
     quizView.appendChild(btn);
+
+    ///STARTAR CHECKFUNKTIONEN OCH SKICKAR MED SVARET MAN KLICKADE PÅ
     btn.addEventListener("click", function () {
       checkAnswer(idx);
+
+      console.log(questionIndex);
     });
   });
 
+  ///FUNKTIONEN SOM CHECKAR OM SVARET ÄR RÄTT
   function checkAnswer(selectedIdx) {
-    const buttons = quizView.getElementsByTagName("button");
-    for (let i = 0; i < buttons.length; i++) {
-      buttons[i].disabled = true;
+    ///DISABLEA KNAPPARNA EFTER MAN SVARAT
+    const answerButtons = quizView.querySelectorAll(".answer-button");
+    for (let i = 0; i < answerButtons.length; i++) {
+      answerButtons[i].disabled = true;
     }
 
+    ///SÄTTER EN KLASS PÅ KNAPPARNA FÖR SYNS SKULL
     if (selectedIdx === correctIndex) {
-      answerCheckDisplay.innerHTML = `<span class="correct">Du hade rätt!</span>`;
+      answerCheck.innerHTML = `<span class="correct">Du hade rätt!</span>`;
+      playerPoints++;
     } else {
-      answerCheckDisplay.innerHTML = `<span class="incorrect">Du hade fel!</span>`;
+      answerCheck.innerHTML = `<span class="incorrect">Du hade fel!</span>`;
     }
-    nextQuestionBtn.classList.remove("hidden");
   }
 }
 
-nextQuestionBtn.addEventListener("click", function () {
-  console.log("next question");
+///NOLLSTÄLLER QUIZZET OCH GÅR TILLBAKS TILL TEMAVAL-CONTAINERN
+restartBtn.addEventListener("click", function () {
+  resultsView.classList.remove("active");
+  themeSelectView.classList.add("active");
+  playerPoints = 0;
 });

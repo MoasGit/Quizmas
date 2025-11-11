@@ -43,7 +43,7 @@
       {
         "id": 1,
         "image-src": "",
-        "question": "Vilket är världens största lant till ytan?",
+        "question": "Vilket är världens största land till ytan?",
         "options": ["Kina", "USA", "Australien", "Ryssland"],
         "answer": 3
       },
@@ -58,7 +58,7 @@
         "id": 3,
         "image-src": "",
         "question": "Vad heter Kanadas huvudstad?",
-        "options": ["Montréal", "Ottowa","Toronto", "Vancouver"],
+        "options": ["Montréal", "Ottawa","Toronto", "Vancouver"],
         "answer": 1
       },
       {

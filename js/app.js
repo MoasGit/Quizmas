@@ -14,11 +14,14 @@ const nameInputField = document.getElementById("name-input-field");
 const nameInputBtn = document.getElementById("name-input-button");
 
 const nameDisplay = document.getElementById("name-display");
-const answerCheckDisplay = document.getElementById("answer-check-display");
+const answerCheckDisplay = document.getElementById("answer-check-display");0
 
 const nextQuestionBtn = document.getElementById("next-question-button");
 
 const playerScore = document.getElementById("player-score");
+const totalScore = document.getElementById("total-score")
+console.log(totalScore.value)
+
 
 const restartBtn = document.getElementById("restart-button");
 
@@ -27,6 +30,7 @@ const restartBtn = document.getElementById("restart-button");
 /////SÄTTER DEFAULT VÄRDEN FÖR INDEXEN FÖR FRÅGORNA OCH POÄNG
 let questionIndex = -1;
 let playerPoints = 0;
+let playerTotalScore = 0;
 
 ///STYR VAD KNAPPEN SKA GÖRA I NAMN CONTAINERN
 nameInputBtn.addEventListener("click", function (e) {
@@ -97,6 +101,7 @@ function displayQuiz(themes) {
       quizView.classList.remove("active");
       resultsView.classList.add("active");
       playerScore.innerHTML = `Total score ${playerPoints}`;
+      playerTotalScore = playerPoints;
       questionIndex = -1;
     }
   });

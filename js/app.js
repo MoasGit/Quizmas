@@ -72,7 +72,7 @@ function displayQuiz(themes) {
 
   let savedScore = localStorage.getItem("playerScoreHistory");
   savedScore = Number(savedScore);
-  console.log(savedScore)
+  console.log(savedScore);
 
   const arrLength = themes.length;
   console.log(arrLength);
@@ -82,6 +82,18 @@ function displayQuiz(themes) {
   questionIndex++;
   quizView.innerHTML = "";
   console.log("nu visas fråga nummer:" + questionIndex);
+
+  //// SKAPAR BILDCONTAINER OCH SÄTTER BAKGRUNDSBILD FRÅN JSON
+
+  const questionImage = document.createElement("div");
+  questionImage.classList.add("question-image-container");
+  questionImage.style.backgroundImage = `url('${themes[questionIndex].image}')`;
+  questionImage.style.backgroundSize = "cover"; // or "contain" depending on what you want
+  questionImage.style.backgroundPosition = "center";
+  questionImage.style.backgroundRepeat = "no-repeat";
+  quizView.appendChild(questionImage);
+
+  //////
 
   const questionText = document.createElement("p");
   questionText.innerHTML = `${themes[questionIndex].question}`;
@@ -109,7 +121,7 @@ function displayQuiz(themes) {
       playerScore.innerHTML = `Total score ${playerPoints}`;
       playerTotalScore += playerPoints;
       questionIndex = -1;
-      console.log(playerTotalScore)
+      console.log(playerTotalScore);
       localStorage.setItem("playerScoreHistory", playerTotalScore);
     }
   });
@@ -126,7 +138,6 @@ function displayQuiz(themes) {
 
     ///STARTAR CHECKFUNKTIONEN OCH SKICKAR MED SVARET MAN KLICKADE PÅ
     btn.addEventListener("click", function () {
-
       checkAnswer(idx);
 
       console.log(questionIndex);

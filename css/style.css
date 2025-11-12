@@ -54,8 +54,6 @@ h6 {
 .theme-container,
 .quiz-container,
 .results-container {
-  border: 1px solid gray;
-  margin-bottom: 50px;
 }
 
 .view-container {
@@ -102,6 +100,7 @@ span.incorrect {
   color: black;
   display: inline-block;
   top: 55%;
+  z-index: 3;
 }
 
 .active {
@@ -203,6 +202,7 @@ span.incorrect {
   border-radius: 30px;
   padding: 10px 30px;
   color: #fff;
+  z-index: 3;
 }
 
 .next-question-button {
@@ -224,8 +224,8 @@ span.incorrect {
   content: "Temporary :)";
   position: absolute;
   top: 0px;
-  left: -10px;
-  font-size: 12px;
+  left: -18px;
+  font-size: 10px;
   color: black;
   background-color: red;
   border-radius: 10px;
@@ -243,6 +243,8 @@ span.incorrect {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   border: none;
+  position: relative;
+  z-index: 2;
 }
 
 .answer-button:not(:disabled):hover {
@@ -252,29 +254,88 @@ span.incorrect {
 .answer-button:disabled {
   cursor: not-allowed;
   pointer-events: none;
+  filter: blur(5px);
 }
 
-.answer-button {
-  background-color: #c41e3a;
-}
 .answer-button:nth-of-type(2) {
   background-color: #1b4d3e;
+
+  color: #fff;
 }
 .answer-button:nth-of-type(3) {
   background-color: #f8f9fa;
+  color: #000;
 }
 .answer-button:nth-of-type(4) {
   background-color: #d4af37;
+  color: #fff;
+}
+
+.answer-button:nth-of-type(5) {
+  background-color: #c41e3a;
+  color: #fff;
+}
+
+.answer-button:nth-of-type(2)::before {
+  content: "A";
+  position: absolute;
+  font-size: 400px;
+  z-index: -1;
+  opacity: 0.1;
+  color: #000;
+  width: 100%;
+  height: 100%;
+}
+.answer-button:nth-of-type(3)::before {
+  content: "C";
+  position: absolute;
+  font-size: 400px;
+  z-index: -1;
+  opacity: 0.1;
+  color: #000;
+  width: 100%;
+  height: 100%;
+}
+.answer-button:nth-of-type(4)::before {
+  content: "B";
+  position: absolute;
+  font-size: 400px;
+  z-index: -1;
+  opacity: 0.1;
+  color: #000;
+  width: 100%;
+  height: 100%;
+}
+
+.answer-button:nth-of-type(5)::before {
+  content: "D";
+  position: absolute;
+  font-size: 400px;
+  z-index: -1;
+  opacity: 0.1;
+  color: #000;
+  width: 100%;
+  height: 100%;
 }
 
 .answer-check-text {
   position: absolute;
   top: 40%;
   font-size: 38px;
+  z-index: 3;
 }
 
 .answer-check-text {
   animation: scaleInBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.question-image-container {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 30%;
+  z-index: 3;
+  border-radius: 50%;
 }
 
 @keyframes scaleInBounce {

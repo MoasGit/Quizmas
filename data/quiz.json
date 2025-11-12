@@ -3,21 +3,18 @@
     "music": [
       {
         "id": 1,
-        "image-src": "",
         "question": "How many symphonies have Beethoven written?",
         "options": ["7", "9", "11", "13"],
         "answer": 1
       },
       {
         "id": 2,
-        "image-src": "",
         "question": "How many songs have Moa written?",
         "options": ["2", "49", "500", "0"],
         "answer": 3
       },
       {
         "id": 3,
-        "image-src": "",
         "question": "How many songs have Jesper written?",
         "options": ["2", "49", "500", "0"],
         "answer": 3
@@ -26,14 +23,12 @@
     "movies": [
       {
         "id": 1,
-        "image-src": "",
         "question": "How many movies have Beethoven made?",
         "options": ["2", "49", "500", "0"],
         "answer": 1
       },
       {
         "id": 2,
-        "image-src": "",
         "question": "",
         "options": [],
         "answer": 1
@@ -42,70 +37,60 @@
     "geography": [
       {
         "id": 1,
-        "image-src": "",
         "question": "Vilket är världens största land till ytan?",
         "options": ["Kina", "USA", "Australien", "Ryssland"],
         "answer": 3
       },
       {
         "id": 2,
-        "image-src": "",
         "question": "Vilken är Sveriges största sjö?",
         "options": ["Vättern", "Mälaren", "Vänern", "Storsjön"],
         "answer": 2
       },
       {
         "id": 3,
-        "image-src": "",
         "question": "Vad heter Kanadas huvudstad?",
         "options": ["Montréal", "Ottawa","Toronto", "Vancouver"],
         "answer": 1
       },
       {
         "id": 4,
-        "image-src": "",
         "question": "Vilket land har staden Marrakech",
         "options": ["Marocko", "Tunisien", "Libyen", "Mauretanien"],
         "answer": 0
       },
       {
         "id": 5,
-        "image-src": "",
         "question": "Vilket land har flest grannländer?",
         "options": ["Slovakien", "Bhutan", "Kina", "Bolivia"],
         "answer": 2
       },
       {
         "id": 6,
-        "image-src": "",
         "question": "Vad heter huvudstaden Kazakstan",
         "options": ["Dusjanbe", "Bisjkek", "Kabul", "Astana"],
         "answer": 3
       },
       {
         "id": 7,
-        "image-src": "",
         "question": "På vilken kontinent ligger chile? ",
         "options": ["Afrika", "Sydamerika", "Asien", "Europa"],
         "answer": 1
       },
       {
         "id": 8,
-        "image-src": "",
         "question": "Vad heter det hav som ligger mellan Storbritannien och Norge?",
         "options": ["Östersjön", "Nordsjön", "Atlanten", "Stilla havet"],
         "answer": 1
       },
       {
         "id": 9,
-        "image-src": "",
         "question": "Vad heter bergskedjan som Mount Everest befinner sig i?",
         "options": ["Himalaya", "Uralbergen", "Ardennerna", "Anderna"],
         "answer": 0
       },
       {
         "id": 10,
-        "image-src": "",
         "question": "Vilket land har världens högsta befolkningstäthet?",
         "options": ["Kina", "Taiwan", "Japan", "Monaco"],
         "answer": 3
@@ -113,17 +98,63 @@
     ],
     "christmas": [
       {
-        "id": 2,
-        "image-src": "",
-        "question": "Vad heter bergskedjan som Mount Everest befinner sig i?",
-        "options": [],
-        "answer": 1
+        "id": 1,
+        "question": "Vilken färg har julbocken?",
+        "options": ["Röd", "Silver", "Guld", "Gul"],
+        "answer": 3
       },
       {
         "id": 2,
-        "image-src": "",
-        "question": "",
-        "options": [],
+        "question": "Vilken är den mest spelade jullåten på Spotify?",
+        "options": ["WHAM - Last Chsitmas", "Mariah Carey - All I Want For Christmas Is You", "Santa Tell Me - Ariana Grande", "Driving home for christmas - Chris Rea"],
+        "answer": 0
+      },
+       {
+        "id": 3,
+        "question": "Vem gör rösten till konduktören i The Polar Express (2004)?",
+        "options": ["Tom Hanks", "Robert Deniro", "Jack Black", "Tim Allen"],
+        "answer": 0
+      },
+       {
+        "id": 4,
+        "question": "Hur många renar drar jultomtens släde (inklusive Rudolf)?",
+        "options": ["9 ", "8", "10", "13"],
+        "answer": 0
+      },
+       {
+        "id": 5,
+        "question": "Vilket land exporterar flest julgranar i Europa?",
+        "options": ["Österrike", "Tyskland", "Danmark", "Polen"],
+        "answer": 2
+      },
+       {
+        "id": 6,
+        "question": "Vilket år sändes 'Kalle Anka och hans vänner önskar God Jul' första gången?",
+        "options": [1959, 1960, 1966, 1973],
+        "answer": 2
+      },
+       {
+        "id": 7,
+        "question": "Vilket land anses vara ursprungsplatsen för traditionen med julgranen?",
+        "options": ["Italien", "Tyskland", "Danmark", "Grekland"],
+        "answer": 1
+      },
+       {
+        "id": 8,
+        "question": "Enligt julberättelsen, vilka gåvor gav de tre vise männen till Jesus?",
+        "options": ["Guld, silver, koppar", "Silver, saffran och jade", "Salt, rökelse och brons", "Guld, myrra & rökelse"],
+        "answer": 3
+      },
+       {
+        "id": 9,
+        "question": "Hur många gåvor nämns i 'The Twelve Days of Christmas'?",
+        "options": [112, 100, 236, 364],
+        "answer": 3
+      },
+       {
+        "id": 10,
+        "question": "Vem skrev texten till 'Stilla natt' (Stille Nacht)?",
+        "options": ["Johann Sebastian Bach", "Joseph Mohr", "Franz Gruber", "Martin Luther"],
         "answer": 1
       }
     ]

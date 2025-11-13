@@ -74,14 +74,14 @@ themeGeographyButton.addEventListener("click", () => fetchQuiz("geography"));
 themeMoviesButton.addEventListener("click", () => fetchQuiz("movies"));
 themeChristmasButton.addEventListener("click", () => fetchQuiz("christmas"));
 
+//SKAPAR MUTE-KNAPP FÖR LJUDEFFEKTER
 const mainContainer = document.querySelector(".main-container");
 console.log(mainContainer);
 const muteBtn = document.createElement("button");
 muteBtn.innerHTML = `🔊`;
 muteBtn.classList.add("mute-button");
 mainContainer.appendChild(muteBtn);
-
-// Set up the mute functionality
+//DENNA FUNKTION IMPORTERAS OCH KÖRS I sound-effects.js
 setupMuteButton(muteBtn);
 
 ///VISA VALT TEMA I QUIZ CONTAINERN (SKAPAR ELEMENT FÖR FRÅGOR OCH SVARSKNAPPAR)

@@ -171,6 +171,7 @@ backToMainBtn.addEventListener("click", function () {
     quizView.classList.remove('active');
     themeSelectView.classList.add('active');
     playerPoints = 0;
+    questionIndex = -1;
   });
 }
 ///NOLLSTÄLLER QUIZZET OCH GÅR TILLBAKS TILL TEMAVAL-CONTAINERN

@@ -178,7 +178,7 @@ function displayQuiz(themes) {
   backToMainBtn.classList.add("back-to-main-button");
   quizView.appendChild(backToMainBtn);
   
-backToMainBtn.addEventListener("click", function () {
+    backToMainBtn.addEventListener("click", function () {
     quizView.classList.remove('active');
     themeSelectView.classList.add('active');
     playerPoints = 0;

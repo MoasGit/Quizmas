@@ -364,6 +364,7 @@ span.incorrect {
 .back-to-main-button {
   display: block;
   position: absolute;
+  z-index: 1000;
   top: 10px;
   left: 10px;
   font-size: 32px;

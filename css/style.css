@@ -381,6 +381,52 @@ span.incorrect {
   transition: all 0.2s ease-in-out;
 }
 .back-to-main-button:hover {
+  transform: scale(115%);
+  transition: 0.05s;
+  color: rgb(218, 115, 115);
+}
+.snowflake-button {
+  display: block;
+  position: absolute;
+  background-color: rgb(162, 136, 136);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  z-index: 1000;
+  /* top: 10px;*/
+  left: 50px;
+  bottom: 10px;
+  font-size: 32px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  }
+  .snowflake-button:hover {
+    transform: scale(115%);
+    transition: 0.05s;
+    color: rgb(173, 199, 255);
+  }
+
+    .snowflake {
+    position: fixed;
+    top: -10px;
+    color: #fff;
+    font-size: 1em;
+    animation: fall linear infinite;
+    z-index: 8888;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+body.snow-active .snowflake {
+    display: block;
+      }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
   transform: scale(1.1);
 }
 

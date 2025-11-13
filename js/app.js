@@ -67,12 +67,42 @@ async function fetchQuiz(themeChoice) {
   }
 }
 
+//Får DET ATT SNÖA!
+let snowButton = document.createElement("button");
+let snowing = false;
+  snowButton.innerHTML = '❄';
+  snowButton.classList.add("snowflake-button");
+  document.body.appendChild(snowButton);
+snowButton.addEventListener("click", function(){
+    if (!snowing) {
+        createSnowflakes();
+        snowing = true;
+    }else{
+      snowing = false;
+      const snowflakes = document.querySelectorAll('.snowflake');
+      snowflakes.forEach(snowflake => snowflake.remove());
+    }
+});
+
+  function createSnowflakes() {
+    for (let i = 0; i < 100; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.innerHTML = '❄';
+        snowflake.style.left = Math.random() * 100 + '%';
+        snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
+        snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+        document.body.appendChild(snowflake);
+    }
+}
+
 ///DET HÄR GJORDE AI - EVENTLYSSNARE FÖR TEMAVAL-KNAPPARNA (VARFÖR WRAPPA FUNKTION I FUNKTION???)
 // Add click handlers - pass the theme name as a string and wrap fetchQuiz in a function
 themeMusicButton.addEventListener("click", () => fetchQuiz("music"));
 themeGeographyButton.addEventListener("click", () => fetchQuiz("geography"));
 themeMoviesButton.addEventListener("click", () => fetchQuiz("movies"));
-themeChristmasButton.addEventListener("click", () => fetchQuiz("christmas"));
+themeChristmasButton.addEventListener("click", () =>  fetchQuiz("christmas"));
 
 //SKAPAR MUTE-KNAPP FÖR LJUDEFFEKTER
 const mainContainer = document.querySelector(".main-container");
@@ -204,6 +234,20 @@ function displayQuiz(themes) {
     questionIndex = -1;
   });
 }
+
+function createSnowflakes() {
+    for (let i = 0; i < 100; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.innerHTML = '❄';
+        snowflake.style.left = Math.random() * 100 + '%';
+        snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
+        snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+        document.body.appendChild(snowflake);
+    }
+}
+
 ///NOLLSTÄLLER QUIZZET OCH GÅR TILLBAKS TILL TEMAVAL-CONTAINERN
 restartBtn.addEventListener("click", function () {
   resultsView.classList.remove("active");

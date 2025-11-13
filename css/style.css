@@ -362,19 +362,47 @@ span.incorrect {
 }
 /* Back to main meny knapp */
 .back-to-main-button {
-  display: block;
   position: absolute;
-  z-index: 1000;
-  top: 10px;
-  left: 10px;
-  font-size: 32px;
-  background-color: transparent;
+  z-index: 3;
+  padding: 10px;
+  top: 20px;
+  left: 20px;
+  background: #2f2f2f;
+  border-radius: 50%;
   border: none;
-  color: #fff;
   cursor: pointer;
+  font-size: 26px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
 }
 .back-to-main-button:hover {
-  transform: scale(115%);
-  transition: 0.05s;
-  color: rgb(218, 115, 115);
+  transform: scale(1.1);
+}
+
+.mute-button {
+  position: absolute;
+  z-index: 3;
+  padding: 10px;
+  bottom: 20px;
+  left: 20px;
+  background: #2f2f2f;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.mute-button:hover {
+  transform: scale(1.1);
 }

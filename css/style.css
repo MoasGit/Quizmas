@@ -45,11 +45,36 @@ h6 {
   overflow-wrap: break-word;
 }
 
+.logo {
+  height: 300px;
+  width: 300px;
+}
+
+.header {
+  font-family: "Mountains of Christmas", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 68px;
+  color: #f1d695;
+}
+
+.choose-theme-text {
+  position: absolute;
+  color: #fff;
+  background-color: #2f2f2f;
+  font-size: 40px;
+  z-index: 1;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
 .main-container {
   width: 100vw;
   height: 100vh;
+  background-color: #6a1919;
+  z-index: 1;
+  position: relative;
 }
-
 
 .view-container {
   display: none;
@@ -66,7 +91,6 @@ h6 {
   padding: 10px;
   border-radius: 10px;
 }
-
 
 span.correct {
   color: #fff;
@@ -374,20 +398,24 @@ span.incorrect {
   transition: all 0.2s ease-in-out;
 }
 .back-to-main-button:hover {
-  
-  transform:scale(1.1);
+  transform: scale(1.1);
 }
 
 .quizTimer {
   position: absolute;
   background-color: #2f2f2f;
-  border-radius: 30px;
+  border-radius: 100%;
   padding: 10px 30px;
   margin-top: 10px;
   color: #fff;
   font-size: 3.7rem;
   z-index: 6;
   top: 0;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .snowflake-button {
@@ -406,34 +434,32 @@ span.incorrect {
   color: #fff;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  }
-  .snowflake-button:hover {
-    transform: scale(1.1);
-    color: rgb(173, 199, 255);
-  }
+}
+.snowflake-button:hover {
+  transform: scale(1.1);
+  color: rgb(173, 199, 255);
+}
 
-    .snowflake {
-    position: fixed;
-    top: -10px;
-    color: #fff;
-    font-size: 1em;
-    animation: fall linear infinite;
-    z-index: 8888;
-    opacity: 0.8;
-    pointer-events: none;
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: #fff;
+  font-size: 1em;
+  animation: fall linear infinite;
+  z-index: 8888;
+  opacity: 0.8;
+  pointer-events: none;
 }
 
 body.snow-active .snowflake {
-    display: block;
-      }
+  display: block;
+}
 
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
-        }
-  
-
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
 
 .mute-button {
   position: absolute;

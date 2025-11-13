@@ -1,55 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/js/app.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Lag 6 - Quiz App</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="/js/app.js" defer></script>
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <title>Lag 6 - Quiz App</title>
-</head>
-
-<body>
-  <div class="main-container">
-    <div class="view-container active" id="name-container">
-      <form class="name">
-        <input type="text" placeholder="Write your name" id="name-input-field" />
-        <button type="submit" id="name-input-button">OK</button>
-      </form>
-    </div>
-    <div class="view-container" id="theme-select-container">
-      <h3 id="name-display"></h3>
-
-      <div class="theme-music-container">
-        <button id="theme-music">Music</button>
+  <body>
+    <div class="main-container">
+      <div class="view-container active" id="name-container">
+        <form class="name">
+          <input
+            type="text"
+            placeholder="Write your name"
+            id="name-input-field"
+          />
+          <button type="submit" id="name-input-button">OK</button>
+        </form>
       </div>
-      <div class="theme-movies-container">
-        <button id="theme-movies">Movies & TV-shows</button>
+      <div class="view-container" id="theme-select-container">
+        <h3 id="name-display"></h3>
+
+        <div class="theme-music-container">
+          <button id="theme-music">Music</button>
+        </div>
+        <div class="theme-movies-container">
+          <button id="theme-movies">Movies & TV-shows</button>
+        </div>
+        <div class="theme-geography-container">
+          <button id="theme-geography">Geography</button>
+        </div>
+        <div class="theme-christmas-container">
+          <button id="theme-christmas">Christmas</button>
+        </div>
       </div>
-      <div class="theme-geography-container">
-        <button id="theme-geography">Geography</button>
+
+      <div class="quiz-container view-container" id="quiz-container">
+        <h2>Quiz container</h2>
+        <div id="answer-check-display" class="answer-check-label"></div>
       </div>
-      <div class="theme-christmas-container">
-        <button id="theme-christmas">Christmas</button>
+
+      <div class="results-container view-container" id="results-container">
+        <h2>Results container</h2>
+        <div id="player-score">0</div>
+        <div id="total-score">0</div>
+        <button id="restart-button">Start a new quiz</button>
       </div>
     </div>
-
-    <div class="quiz-container view-container" id="quiz-container">
-      <h2>Quiz container</h2>
-      <div id="answer-check-display" class="answer-check-label"></div>
-    </div>
-
-    <div class="results-container view-container" id="results-container">
-      <h2>Results container</h2>
-      <div id="player-score">0</div>
-      <div id="total-score">0</div>
-      <button id="restart-button">Start a new quiz</button>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>

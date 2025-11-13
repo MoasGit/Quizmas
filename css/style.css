@@ -50,11 +50,6 @@ h6 {
   height: 100vh;
 }
 
-.name-container,
-.theme-container,
-.quiz-container,
-.results-container {
-}
 
 .view-container {
   display: none;
@@ -72,8 +67,6 @@ h6 {
   border-radius: 10px;
 }
 
-.answer-check-label {
-}
 
 span.correct {
   color: #fff;
@@ -381,9 +374,8 @@ span.incorrect {
   transition: all 0.2s ease-in-out;
 }
 .back-to-main-button:hover {
-  transform: scale(115%);
-  transition: 0.05s;
-  color: rgb(218, 115, 115);
+  
+  transform:scale(1.1);
 }
 
 .quizTimer {
@@ -401,22 +393,22 @@ span.incorrect {
 .snowflake-button {
   display: block;
   position: absolute;
-  background-color: rgb(162, 136, 136);
+  background-color: #2f2f2f;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   z-index: 1000;
   /* top: 10px;*/
-  left: 50px;
-  bottom: 10px;
+  left: 80px;
+  bottom: 20px;
   font-size: 32px;
   border: none;
   color: #fff;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
   }
   .snowflake-button:hover {
-    transform: scale(115%);
-    transition: 0.05s;
+    transform: scale(1.1);
     color: rgb(173, 199, 255);
   }
 
@@ -440,8 +432,8 @@ body.snow-active .snowflake {
                 transform: translateY(100vh);
             }
         }
-  transform: scale(1.1);
-}
+  
+
 
 .mute-button {
   position: absolute;

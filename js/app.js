@@ -265,8 +265,6 @@ function displayQuiz(themes) {
   start();
 }
 
-
-
 ///NOLLSTÄLLER QUIZZET OCH GÅR TILLBAKS TILL TEMAVAL-CONTAINERN
 restartBtn.addEventListener("click", function () {
   resultsView.classList.remove("active");

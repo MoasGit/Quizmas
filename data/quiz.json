@@ -106,61 +106,72 @@
         "id": 1,
         "question": "Vilket är världens största land till ytan?",
         "options": ["Kina", "USA", "Australien", "Ryssland"],
-        "answer": 3
+        "answer": 3,
+        "image": "/images/question-images/antikKarta.jpg"
       },
       {
         "id": 2,
         "question": "Vilken är Sveriges största sjö?",
         "options": ["Vättern", "Mälaren", "Vänern", "Storsjön"],
-        "answer": 2
+        "answer": 2,
+        "image": "/images/question-images/lakePic.jpg"
+
       },
       {
         "id": 3,
         "question": "Vad heter Kanadas huvudstad?",
         "options": ["Montréal", "Ottawa", "Toronto", "Vancouver"],
-        "answer": 1
+        "answer": 1,
+        "image": "/images/question-images/kanadaFlagga.png"
       },
       {
         "id": 4,
         "question": "Vilket land har staden Marrakech",
         "options": ["Marocko", "Tunisien", "Libyen", "Mauretanien"],
-        "answer": 0
+        "answer": 0,
+        "image": "/images/question-images/marrakesh.jpg"
       },
       {
         "id": 5,
         "question": "Vilket land har flest grannländer?",
         "options": ["Slovakien", "Bhutan", "Kina", "Bolivia"],
-        "answer": 2
+        "answer": 2,
+        "image": "/images/question-images/worldFlags.jpg"
       },
       {
         "id": 6,
         "question": "Vad heter huvudstaden i Kazakstan",
         "options": ["Dusjanbe", "Bisjkek", "Kabul", "Astana"],
-        "answer": 3
+        "answer": 3,
+        "image": "/images/question-images/kazakstanFlagga.png"
       },
       {
         "id": 7,
         "question": "På vilken kontinent ligger Chile? ",
         "options": ["Afrika", "Sydamerika", "Asien", "Europa"],
-        "answer": 1
+        "answer": 1,
+        "image": "/images/question-images/kontinenter.jpg"
       },
       {
         "id": 8,
         "question": "Vad heter det hav som ligger mellan Storbritannien och Norge?",
         "options": ["Östersjön", "Nordsjön", "Atlanten", "Stilla havet"],
-        "answer": 1
+        "answer": 1,
+        "image": "/images/question-images/havMellanLand.avif"
       },
       {
         "id": 9,
         "question": "Vad heter bergskedjan som Mount Everest befinner sig i?",
         "options": ["Himalaya", "Uralbergen", "Ardennerna", "Anderna"],
-        "answer": 0
+        "answer": 0,
+        "image": "/images/question-images/mountEverest.jpg"
       },
       {
         "id": 10,
         "question": "Vilket land har världens högsta befolkningstäthet?",
         "options": ["Kina", "Taiwan", "Japan", "Monaco"],
-        "answer": 3
+        "answer": 3,
+        "image": "/images/question-images/lotsOfPeople.jpg"
       }
     ],
     "christmas": [

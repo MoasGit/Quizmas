@@ -22,6 +22,7 @@ const nameView = document.getElementById("name-container");
 const themeSelectView = document.getElementById("theme-select-container");
 const quizView = document.getElementById("quiz-container");
 const resultsView = document.getElementById("results-container");
+const totalScoreDisplay = document.getElementById("player-total-score-display")
 
 const nameInputField = document.getElementById("name-input-field");
 const nameInputBtn = document.getElementById("name-input-button");
@@ -33,7 +34,11 @@ const nextQuestionBtn = document.getElementById("next-question-button");
 
 const playerScore = document.getElementById("player-score");
 const totalScore = document.getElementById("total-score");
-console.log(totalScore.value);
+const highScore = document.getElementById("high-score")
+
+let playerName;
+
+let playersArray = [];
 
 const restartBtn = document.getElementById("restart-button");
 
@@ -47,7 +52,7 @@ let playerTotalScore = 0;
 ///STYR VAD KNAPPEN SKA GÖRA I NAMN CONTAINERN
 nameInputBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  const playerName = nameInputField.value.trim() || "Player"; //Tar bort empy spaces (AI)
+  playerName = nameInputField.value.trim() || "Player"; //Tar bort empy spaces (AI)
   nameView.classList.remove("active");
   themeSelectView.classList.add("active");
   nameDisplay.textContent = `Welcome ${playerName}!`;
@@ -123,9 +128,13 @@ setupMuteButton(muteBtn);
 function displayQuiz(themes) {
   console.log("themes received:", themes);
 
-  let savedScore = localStorage.getItem("playerScoreHistory");
+  let recentScores = JSON.parse(localStorage.getItem("playerScoreHistory"));
+
+  playersArray = Array.isArray(recentScores) ? recentScores : [];
+
+/*
   savedScore = Number(savedScore);
-  console.log(savedScore);
+  console.log(savedScore);*/
 
   const arrLength = themes.length;
   console.log(arrLength);
@@ -172,10 +181,52 @@ function displayQuiz(themes) {
       quizView.classList.remove("active");
       resultsView.classList.add("active");
       playerScore.innerHTML = `Total score ${playerPoints}`;
-      playerTotalScore += playerPoints;
+      playerTotalScore = playerPoints
+
+      
+      let thisPlayer = {
+        name: playerName,
+        score: Number(playerTotalScore)
+      }
+        for (let i = 0; i < playersArray.length; i++){
+          if (playersArray[i].name == playerName){
+              playersArray[i].score += playerTotalScore
+          }
+            
+        }
+         
+      let found = false;
+      for (let i = 0; i < playersArray.length; i++){
+        if(playersArray[i].name == playerName){
+          totalScoreDisplay.innerHTML = `Spelare: ${playerName}, Totala quizpoäng: ${playersArray[i].score}`;
+          found = true;
+          break;
+        }
+      }
+      if(found == false){
+        totalScoreDisplay.innerHTML = `Ny spelare: ${playerName}, Totala quizpoäng: ${playerTotalScore}`
+      }
+
+    
+      
+      
       questionIndex = -1;
       console.log(playerTotalScore);
-      localStorage.setItem("playerScoreHistory", playerTotalScore);
+
+       
+        if (found == false){
+        playersArray.push(thisPlayer)
+        }
+
+        localStorage.setItem("playerScoreHistory", JSON.stringify(playersArray))
+
+        let highScoreArray = playersArray.slice().sort((a, b) => Number(b.score) - Number(a.score))
+        
+        highScoreArray.slice(0, 5).forEach((a) => {
+          let li = document.createElement("li");
+          li.innerHTML = `Spelare: ${a.name}, Score: ${a.score}`
+          highScore.appendChild(li)
+        })
     }
   });
 

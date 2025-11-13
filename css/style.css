@@ -348,3 +348,20 @@ span.incorrect {
     transform: scale(1);
   }
 }
+/* Back to main meny knapp */
+.back-to-main-button {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 32px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.back-to-main-button:hover {
+  transform: scale(115%);
+  transition: 0.05s;
+  color: rgb(218, 115, 115);
+}

@@ -24,6 +24,7 @@ console.log(totalScore.value);
 
 const restartBtn = document.getElementById("restart-button");
 
+
 ///////////////////////
 
 /////SÄTTER DEFAULT VÄRDEN FÖR INDEXEN FÖR FRÅGORNA OCH POÄNG
@@ -171,11 +172,24 @@ function displayQuiz(themes) {
       answerCheck.style.animation = "";
     }
   }
+  //TAR DIG TILLBAKA TILL TEMAVAL-CONTAINERN
+  let backToMainBtn = document.createElement("button");
+  backToMainBtn.innerHTML = `&#8617`;
+  backToMainBtn.classList.add("back-to-main-button");
+  quizView.appendChild(backToMainBtn);
+  
+backToMainBtn.addEventListener("click", function () {
+    quizView.classList.remove('active');
+    themeSelectView.classList.add('active');
+    playerPoints = 0;
+    questionIndex = -1;
+  });
 }
-
 ///NOLLSTÄLLER QUIZZET OCH GÅR TILLBAKS TILL TEMAVAL-CONTAINERN
 restartBtn.addEventListener("click", function () {
   resultsView.classList.remove("active");
   themeSelectView.classList.add("active");
   playerPoints = 0;
 });
+
+    

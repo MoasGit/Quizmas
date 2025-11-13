@@ -3,21 +3,88 @@
     "music": [
       {
         "id": 1,
-        "question": "How many symphonies have Beethoven written?",
-        "options": ["7", "9", "11", "13"],
-        "answer": 1
+        "question": "Which pop star is known as the “Queen of Pop”?",
+        "options": ["Madonna", "Lady Gaga", "Britney Spears", "Taylor Swift"],
+        "answer": 0,
+        "image": "/images/question-images/queen-of-pop.jpg"
       },
       {
         "id": 2,
-        "question": "How many songs have Moa written?",
-        "options": ["2", "49", "500", "0"],
-        "answer": 3
+        "question": "What is the real name of the artist who performs as “Eminem”?",
+        "options": [
+          "Shawn Carter",
+          "Marshall Mathers",
+          "Curtis Jackson",
+          "Calvin Broadus"
+        ],
+        "answer": 1,
+        "image": "/images/question-images/eminem.jpg"
       },
       {
         "id": 3,
-        "question": "How many songs have Jesper written?",
-        "options": ["2", "49", "500", "0"],
-        "answer": 3
+        "question": "In what year did Beyoncé release her debut solo album, Dangerously in Love?",
+        "options": ["2001", "2003", "2005", "2007"],
+        "answer": 1,
+        "image": "/images/question-images/beyonce.webp"
+      },
+      {
+        "id": 4,
+        "question": "Which British band released the album Abbey Road in 1969?",
+        "options": [
+          "The Rolling Stones",
+          "Pink Floyd",
+          "The Beatles",
+          "The Who"
+        ],
+        "answer": 2,
+        "image": "/images/question-images/uk.png"
+      },
+      {
+        "id": 5,
+        "question": "What musical instrument has keys, pedals, and strings, and is often found in classical music?",
+        "options": ["Violin", "Harp", "Piano", "Organ"],
+        "answer": 2,
+        "image": "/images/question-images/instrument.avif"
+      },
+      {
+        "id": 6,
+        "question": "Which song by Queen begins with the lyrics, “Is this the real life? Is this just fantasy?”",
+        "options": [
+          "We Are the Champions",
+          "Bohemian Rhapsody",
+          "Somebody to Love",
+          "Don't Stop Me Now"
+        ],
+        "answer": 1,
+        "image": "/images/question-images/queen.jpg"
+      },
+      {
+        "id": 7,
+        "question": "What is the highest male singing voice called?",
+        "options": ["Tenor", "Baritone", "Bass", "Countertenor"],
+        "answer": 3,
+        "image": "/images/question-images/male-singing.jpeg"
+      },
+      {
+        "id": 8,
+        "question": "Who won the Eurovision Song Contest for Sweden in 1974 with the song Waterloo?",
+        "options": ["Roxette", "Ace of Base", "ABBA", "The Cardigans"],
+        "answer": 2,
+        "image": "/images/question-images/sweden.jpeg"
+      },
+      {
+        "id": 9,
+        "question": "Which artist holds the record for the most Grammy Awards won by a female artist (as of 2025)?",
+        "options": ["Adele", "Taylor Swift", "Beyoncé", "Aretha Franklin"],
+        "answer": 2,
+        "image": "/images/question-images/grammy.jpg"
+      },
+      {
+        "id": 10,
+        "question": "What genre of music did Bob Marley help popularize worldwide?",
+        "options": ["Jazz", "Reggae", "Soul", "Calypso"],
+        "answer": 1,
+        "image": "/images/question-images/bob-marley.webp"
       }
     ],
     "movies": [
@@ -50,7 +117,7 @@
       {
         "id": 3,
         "question": "Vad heter Kanadas huvudstad?",
-        "options": ["Montréal", "Ottawa","Toronto", "Vancouver"],
+        "options": ["Montréal", "Ottawa", "Toronto", "Vancouver"],
         "answer": 1
       },
       {
@@ -106,55 +173,70 @@
       {
         "id": 2,
         "question": "Vilken är den mest spelade jullåten på Spotify?",
-        "options": ["WHAM - Last Christmas", "Mariah Carey - All I Want For Christmas Is You", "Santa Tell Me - Ariana Grande", "Driving home for christmas - Chris Rea"],
+        "options": [
+          "WHAM - Last Christmas",
+          "Mariah Carey - All I Want For Christmas Is You",
+          "Santa Tell Me - Ariana Grande",
+          "Driving home for christmas - Chris Rea"
+        ],
         "answer": 0
       },
-       {
+      {
         "id": 3,
         "question": "Vem gör rösten till konduktören i 'The Polar Express' (2004)?",
         "options": ["Tom Hanks", "Robert Deniro", "Jack Black", "Tim Allen"],
         "answer": 0
       },
-       {
+      {
         "id": 4,
         "question": "Hur många renar drar jultomtens släde (inklusive Rudolf)?",
         "options": ["9 ", "8", "10", "13"],
         "answer": 0
       },
-       {
+      {
         "id": 5,
         "question": "Vilket land exporterar flest julgranar i Europa?",
         "options": ["Österrike", "Tyskland", "Danmark", "Polen"],
         "answer": 2
       },
-       {
+      {
         "id": 6,
         "question": "Vilket år sändes 'Kalle Anka och hans vänner önskar God Jul' första gången?",
         "options": [1959, 1960, 1966, 1973],
         "answer": 2
       },
-       {
+      {
         "id": 7,
         "question": "Vilket land anses vara ursprungsplatsen för traditionen med julgranen?",
         "options": ["Italien", "Tyskland", "Danmark", "Grekland"],
         "answer": 1
       },
-       {
+      {
         "id": 8,
         "question": "Enligt julberättelsen, vilka gåvor gav de tre vise männen till Jesus?",
-        "options": ["Guld, silver, koppar", "Silver, saffran och jade", "Salt, rökelse och brons", "Guld, myrra & rökelse"],
+        "options": [
+          "Guld, silver, koppar",
+          "Silver, saffran och jade",
+          "Salt, rökelse och brons",
+          "Guld, myrra & rökelse"
+        ],
         "answer": 3
       },
-       {
+      {
         "id": 9,
         "question": "Hur många gåvor nämns i 'The Twelve Days of Christmas'?",
         "options": [112, 100, 236, 364],
         "answer": 3
       },
-       {
+      {
         "id": 10,
         "question": "Vem skrev texten till 'Stilla natt' (Stille Nacht)?",
-        "options": ["Johann Sebastian Bach", "Joseph Mohr", "Franz Gruber", "Martin Luther"],
+        "options": [
+          "Johann Sebastian Bach",
+          "Joseph Mohr",
+          "Franz Gruber",
+          "Martin Luther"
+        ],
         "answer": 1
       }
     ]

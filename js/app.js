@@ -1,3 +1,11 @@
+//IMPORTS
+import {
+  correctSound,
+  incorrectSound,
+  setupMuteButton,
+  playSound,
+} from "/js/sound-effects.js";
+
 //SÄTTER VARIABLER FÖR DOM-ELEMENT
 
 const themeMusicButton = document.getElementById("theme-music");
@@ -23,7 +31,6 @@ const totalScore = document.getElementById("total-score");
 console.log(totalScore.value);
 
 const restartBtn = document.getElementById("restart-button");
-
 
 ///////////////////////
 
@@ -66,6 +73,16 @@ themeMusicButton.addEventListener("click", () => fetchQuiz("music"));
 themeGeographyButton.addEventListener("click", () => fetchQuiz("geography"));
 themeMoviesButton.addEventListener("click", () => fetchQuiz("movies"));
 themeChristmasButton.addEventListener("click", () => fetchQuiz("christmas"));
+
+//SKAPAR MUTE-KNAPP FÖR LJUDEFFEKTER
+const mainContainer = document.querySelector(".main-container");
+console.log(mainContainer);
+const muteBtn = document.createElement("button");
+muteBtn.innerHTML = `🔊`;
+muteBtn.classList.add("mute-button");
+mainContainer.appendChild(muteBtn);
+//DENNA FUNKTION IMPORTERAS OCH KÖRS I sound-effects.js
+setupMuteButton(muteBtn);
 
 ///VISA VALT TEMA I QUIZ CONTAINERN (SKAPAR ELEMENT FÖR FRÅGOR OCH SVARSKNAPPAR)
 function displayQuiz(themes) {
@@ -155,6 +172,7 @@ function displayQuiz(themes) {
 
     ///SÄTTER EN KLASS PÅ KNAPPARNA FÖR SYNS SKULL
     if (selectedIdx === correctIndex) {
+      playSound(correctSound);
       answerCheck.innerHTML = `<span class="correct">Du hade rätt!</span>`;
 
       //DESSA ÄR BARA HÄR FÖR ATT RE-TRIGGA ANIMATIONEN
@@ -165,6 +183,7 @@ function displayQuiz(themes) {
       ///LÄGGER TILL POÄNG OM SVARET ÄR RÄTT
       playerPoints++;
     } else {
+      playSound(incorrectSound);
       answerCheck.innerHTML = `<span class="incorrect">Du hade fel!</span>`;
       //DESSA ÄR BARA HÄR FÖR ATT RE-TRIGGA ANIMATIONEN
       answerCheck.style.animation = "none";
@@ -177,10 +196,10 @@ function displayQuiz(themes) {
   backToMainBtn.innerHTML = `&#8617`;
   backToMainBtn.classList.add("back-to-main-button");
   quizView.appendChild(backToMainBtn);
-  
-    backToMainBtn.addEventListener("click", function () {
-    quizView.classList.remove('active');
-    themeSelectView.classList.add('active');
+
+  backToMainBtn.addEventListener("click", function () {
+    quizView.classList.remove("active");
+    themeSelectView.classList.add("active");
     playerPoints = 0;
     questionIndex = -1;
   });
@@ -191,5 +210,3 @@ restartBtn.addEventListener("click", function () {
   themeSelectView.classList.add("active");
   playerPoints = 0;
 });
-
-    

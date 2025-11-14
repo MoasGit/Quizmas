@@ -90,16 +90,78 @@
     "movies": [
       {
         "id": 1,
-        "question": "How many movies have Beethoven made?",
-        "options": ["2", "49", "500", "0"],
-        "answer": 1
+        "question": "Vem spelar huvudrollen i filmen Joker (2019)?",
+        "options": ["Jared Leto", "Joaquin Phoenix", "Christian Bale", "Heath Ledger"],
+        "answer": 1,
+        "image": "/images/question-images/joker2019.jpg"
       },
       {
         "id": 2,
-        "question": "",
-        "options": [],
-        "answer": 1
+        "question": "Vad heter planeten som Avatar (2009) utspelar sig på?",
+        "options": ["Krypton", "Pandora", "Vulcan", "Endor"],
+        "answer": 1,
+        "image": "/images/question-images/avatar.png"
+      },
+      {
+        "id":3,
+        "question":"Vem sjöng låten 'My heart will go on' från titanic (1997)?",
+        "options": [ "Whitney Houston", "Mariah Carey","Celine Dion", "Christina Aguilera"],
+        "answer": 2,
+        "image":"/images/question-images/titanic.webp"
+      },
+      {
+        "id":4,
+        "question":"Vem regisserade filmen 'Pulp Fiction'?",
+        "options": [ "Martin Scorsese", "Steven Spielberg", "James Cameron", "Quentin Tarantino"],
+        "answer": 3,
+        "image":"/images/question-images/pulpfiction.jpg"
+      },
+      {
+        "id":5,
+        "question":"Vilken film kommer citatet 'my precious' ifrån?",
+        "options": [ "Harry Potter", "The Lord of the Rings", "The Hobbit", "The Chronicles of Narnia"],
+        "answer": 1,
+        "image":"/images/question-images/gollum.jpg"
+      },
+      {
+        "id":6,
+        "question":"Vilken superhjälte spelas av Robert Downey Jr. i Marvel-filmerna?",
+        "options": ["Captain America", "Thor", "Iron Man", "Hulk"],
+        "answer": 2,
+        "image": "/images/question-images/rdj.jpg"
+      },
+      {
+        "id":7,
+        "question":"I flimserien Guardians of the Galaxy, vad heter tvättbjörnen?",
+        "options": ["Rocket", "Groot", "Rex", "Racco"],
+        "answer": 0,
+        "image":"/images/question-images/rocket.jpg"
+
+
+      },
+      {
+        "id":8,
+        "question": "Vem spelar John Wick?",
+        "options": [ "Brad Pitt", "Tom Cruise","Keanu Reeves", "Matt Damon"],
+        "answer": 2,
+        "image": "/images/question-images/johnwick.jpg"
+   
+      },
+      {
+        "id":9,
+        "question":"Vilken film vann Oscar för bästa film 2024?",
+        "options": ["Barbie", "Oppenheimer", "The Fabelmans", "Everything Everywhere All at Once"],
+        "answer": 1,
+        "image": "/images/question-images/oscar.jpg"
+      },
+      {
+        "id":10,
+        "question":"Vilken skådespelare spelar huvudrollen i filmen 'Forrest Gump'?",
+        "options": ["Tom Hanks", "Brad Pitt", "Leonardo DiCaprio", "Johnny Depp"],
+        "answer": 0,
+        "image": "/images/question-images/forrestgump.jpg"
       }
+
     ],
     "geography": [
       {

@@ -9,7 +9,7 @@ import {
 
 import { init, start, stop } from './timer.js';
 
-const quizTimer = document.querySelector(".quizTimer");
+const quizTimer = document.getElementById("question-timer");
 
 //SÄTTER VARIABLER FÖR DOM-ELEMENT
 
@@ -176,8 +176,10 @@ function displayQuiz(themes) {
   ////IFALL MAN NÅTT GRÄNSEN PÅ ANTAL FRÅGOR SÅ STOPPAR DEN OCH VISAR RESULTS
   nextBtn.addEventListener("click", function () {
     if (questionIndex < arrLength - 1) {
+      stop();
       displayQuiz(themes);
     } else {
+      start();
       quizView.classList.remove("active");
       resultsView.classList.add("active");
       playerScore.innerHTML = `Total score ${playerPoints}`;
@@ -292,9 +294,24 @@ function displayQuiz(themes) {
   });
 
 //skapa timern i HTML
-  let quizTimer = document.createElement("p");
-  quizTimer.innerHTML = `10`;
+  let quizTimer = document.createElement("div");
+  quizTimer.id = "question-timer";
   quizTimer.classList.add("quizTimer");
+  
+  let timerText = document.createElement("span");
+  timerText.classList.add("timer-text");
+  timerText.textContent = "10";
+
+  let timerBar = document.createElement("div");
+  timerBar.classList.add("timer-bar");
+
+  let timerBarFill = document.createElement("div");
+  timerBarFill.classList.add("timer-bar-fill");
+  
+  timerBar.appendChild(timerBarFill);
+  quizTimer.appendChild(timerText);
+  quizTimer.appendChild(timerBar);
+
   quizView.appendChild(quizTimer);
 
 //Initierar timern och stoppas om man nått gränsen för antal frågor

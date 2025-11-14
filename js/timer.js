@@ -6,8 +6,23 @@ let timesUp = null;
 //Uppdaterar det som visas i DOMen
 function updateTimerText() {
     if (quizTimer) {
-        quizTimer.textContent = timeLeft;
+        const textElement = quizTimer.querySelector(".timer-text");
+        if (textElement) {
+        textElement.textContent = timeLeft;
     }
+
+    const barFill = quizTimer.querySelector(".timer-bar-fill");
+    if (barFill) {
+        const percentage = (timeLeft / 10) * 100;
+        barFill.style.width = percentage + "%";
+    }
+
+    if (timeLeft <= 3) {
+        quizTimer.classList.add("warning");
+    } else {
+        quizTimer.classList.remove("warning");
+    }
+}
 }
 
 //Körs vid varje sekund av nedräkningen

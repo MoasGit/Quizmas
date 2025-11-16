@@ -1,3 +1,16 @@
+
+//IMPORTS
+import {
+  correctSound,
+  incorrectSound,
+  setupMuteButton,
+  playSound,
+} from "/js/sound-effects.js";
+
+import { init, start, stop } from './timer.js';
+
+const quizTimer = document.querySelector(".quizTimer");
+
 //SÄTTER VARIABLER FÖR DOM-ELEMENT
 
 const themeMusicButton = document.getElementById("theme-music");
@@ -64,12 +77,52 @@ async function fetchQuiz(themeChoice) {
   }
 }
 
+//Får DET ATT SNÖA!
+let snowButton = document.createElement("button");
+let snowing = false;
+  snowButton.innerHTML = '❄';
+  snowButton.classList.add("snowflake-button");
+  document.body.appendChild(snowButton);
+snowButton.addEventListener("click", function(){
+    if (!snowing) {
+        createSnowflakes();
+        snowing = true;
+    }else{
+      snowing = false;
+      const snowflakes = document.querySelectorAll('.snowflake');
+      snowflakes.forEach(snowflake => snowflake.remove());
+    }
+});
+
+  function createSnowflakes() {
+    for (let i = 0; i < 100; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.innerHTML = '❄';
+        snowflake.style.left = Math.random() * 100 + '%';
+        snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
+        snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+        document.body.appendChild(snowflake);
+    }
+}
+
 ///DET HÄR GJORDE AI - EVENTLYSSNARE FÖR TEMAVAL-KNAPPARNA (VARFÖR WRAPPA FUNKTION I FUNKTION???)
 // Add click handlers - pass the theme name as a string and wrap fetchQuiz in a function
 themeMusicButton.addEventListener("click", () => fetchQuiz("music"));
 themeGeographyButton.addEventListener("click", () => fetchQuiz("geography"));
 themeMoviesButton.addEventListener("click", () => fetchQuiz("movies"));
-themeChristmasButton.addEventListener("click", () => fetchQuiz("christmas"));
+themeChristmasButton.addEventListener("click", () =>  fetchQuiz("christmas"));
+
+//SKAPAR MUTE-KNAPP FÖR LJUDEFFEKTER
+const mainContainer = document.querySelector(".main-container");
+console.log(mainContainer);
+const muteBtn = document.createElement("button");
+muteBtn.innerHTML = `🔊`;
+muteBtn.classList.add("mute-button");
+mainContainer.appendChild(muteBtn);
+//DENNA FUNKTION IMPORTERAS OCH KÖRS I sound-effects.js
+setupMuteButton(muteBtn);
 
 ///VISA VALT TEMA I QUIZ CONTAINERN (SKAPAR ELEMENT FÖR FRÅGOR OCH SVARSKNAPPAR)
 function displayQuiz(themes) {
@@ -205,6 +258,7 @@ function displayQuiz(themes) {
 
     ///SÄTTER EN KLASS PÅ KNAPPARNA FÖR SYNS SKULL
     if (selectedIdx === correctIndex) {
+      playSound(correctSound);
       answerCheck.innerHTML = `<span class="correct">Du hade rätt!</span>`;
 
       //DESSA ÄR BARA HÄR FÖR ATT RE-TRIGGA ANIMATIONEN
@@ -215,6 +269,7 @@ function displayQuiz(themes) {
       ///LÄGGER TILL POÄNG OM SVARET ÄR RÄTT
       playerPoints++;
     } else {
+      playSound(incorrectSound);
       answerCheck.innerHTML = `<span class="incorrect">Du hade fel!</span>`;
       //DESSA ÄR BARA HÄR FÖR ATT RE-TRIGGA ANIMATIONEN
       answerCheck.style.animation = "none";
@@ -222,6 +277,43 @@ function displayQuiz(themes) {
       answerCheck.style.animation = "";
     }
   }
+  //TAR DIG TILLBAKA TILL TEMAVAL-CONTAINERN
+  let backToMainBtn = document.createElement("button");
+  backToMainBtn.innerHTML = `&#8617`;
+  backToMainBtn.classList.add("back-to-main-button");
+  quizView.appendChild(backToMainBtn);
+
+  backToMainBtn.addEventListener("click", function () {
+    stop();
+    quizView.classList.remove("active");
+    themeSelectView.classList.add("active");
+    playerPoints = 0;
+    questionIndex = -1;
+  });
+
+//skapa timern i HTML
+  let quizTimer = document.createElement("p");
+  quizTimer.innerHTML = `10`;
+  quizTimer.classList.add("quizTimer");
+  quizView.appendChild(quizTimer);
+
+//Initierar timern och stoppas om man nått gränsen för antal frågor
+  init(quizTimer, function() {
+    if (questionIndex < arrLength - 1) {
+      stop();
+      displayQuiz(themes);
+    } else {
+      quizView.classList.remove("active");
+      resultsView.classList.add("active");
+      playerScore.innerHTML = `Total score ${playerPoints}`;
+      playerTotalScore += playerPoints;
+      questionIndex = -1;
+      console.log(playerTotalScore);
+      localStorage.setItem("playerScoreHistory", playerTotalScore);
+    }
+  });
+
+  start();
 }
 
 ///NOLLSTÄLLER QUIZZET OCH GÅR TILLBAKS TILL TEMAVAL-CONTAINERN

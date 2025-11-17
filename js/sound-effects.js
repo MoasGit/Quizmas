@@ -3,6 +3,7 @@ const incorrectSound = new Audio("./audio/incorrect.wav");
 const timeRunningOutSound = new Audio("./audio/time-running-out.wav");
 const jingleSound = new Audio("./audio/jingle.wav");
 
+//LJUDUPPSPELNING OCH MUTING
 let muted = false;
 
 export function playSound(audioElement) {

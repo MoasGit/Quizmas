@@ -521,3 +521,15 @@ body.snow-active .snowflake {
 .mute-button:hover {
   transform: scale(1.1);
 }
+
+#high-score-view {
+  border: 2px double black;
+  border-radius: 7px;
+  background-color: #a53636;
+  color: white;
+  list-style-position: inside;
+  padding: 1rem;
+  margin: 1rem auto;
+  width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

@@ -224,6 +224,7 @@ function displayQuiz(themes) {
 
         let highScoreArray = playersArray.slice().sort((a, b) => Number(b.score) - Number(a.score))
         
+        highScore.innerHTML = "";
         highScoreArray.slice(0, 5).forEach((a) => {
           let li = document.createElement("li");
           li.innerHTML = `Spelare: ${a.name}, Score: ${a.score}`

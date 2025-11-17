@@ -7,7 +7,7 @@ import {
   playSound,
 } from "/js/sound-effects.js";
 
-import { init, start, stop } from './timer.js';
+import { init, start, stop } from './js/timer.js';
 
 const quizTimer = document.getElementById("question-timer");
 

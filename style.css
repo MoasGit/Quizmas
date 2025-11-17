@@ -171,19 +171,19 @@ span.incorrect {
 }
 
 .theme-music-container::before {
-  background-image: url("/images/theme-music.jpg");
+  background-image: url("./images/theme-music.jpg");
 }
 
 .theme-christmas-container::before {
-  background-image: url("/images/theme-christmas.jpg");
+  background-image: url("./images/theme-christmas.jpg");
 }
 
 .theme-movies-container::before {
-  background-image: url("/images/theme-movies.webp");
+  background-image: url("./images/theme-movies.webp");
 }
 
 .theme-geography-container::before {
-  background-image: url("/images/theme-geography.jpg");
+  background-image: url("./images/theme-geography.jpg");
 }
 
 /* Hover effect - scale the pseudo-element */

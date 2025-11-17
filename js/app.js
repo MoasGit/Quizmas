@@ -179,7 +179,7 @@ function displayQuiz(themes) {
       stop();
       displayQuiz(themes);
     } else {
-      start();
+      stop();
       quizView.classList.remove("active");
       resultsView.classList.add("active");
       playerScore.innerHTML = `Total score ${playerPoints}`;

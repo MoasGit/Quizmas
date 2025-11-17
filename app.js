@@ -7,7 +7,7 @@ import {
   playSound,
 } from "./js/sound-effects.js";
 
-import { init, start, stop } from './js/timer.js';
+import { init, start, stop } from "./js/timer.js";
 
 const quizTimer = document.getElementById("question-timer");
 
@@ -61,7 +61,7 @@ nameInputBtn.addEventListener("click", function (e) {
 ///LADDAR IN DATAN FRÅN JSON-FILEN
 async function fetchQuiz(themeChoice) {
   try {
-    const response = await fetch("quiz.json");
+    const response = await fetch("./data/quiz.json");
 
     if (!response.ok) {
       throw new Error(`HTTP error status ${response.status}`);

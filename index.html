@@ -1,50 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="/js/app.js" defer></script>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mountains+of+Christmas:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="quizmas-logo.ico" />
-    <title>QUIZMAS</title>
-  </head>
 
-  <body>
-    <div class="main-container">
-      <div class="view-container active" id="name-container">
-        <img src="/images/quizmas-logo.png" class="logo" />
-        <h1 class="header">QUIZMAS</h1>
-        <form class="name">
-          <input
-            type="text"
-            placeholder="Skriv namn lol"
-            id="name-input-field"
-          />
-          <button type="submit" id="name-input-button">Starta</button>
-        </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P63SH3X2');
+  </script>
+  <!-- End Google Tag Manager -->
+  <script type="module" src="app.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mountains+of+Christmas:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="quizmas-logo.ico" />
+  <title>QUIZMAS</title>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GTD2BXM6NY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-GTD2BXM6NY');
+</script>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P63SH3X2" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="main-container">
+    <div class="view-container active" id="name-container">
+      <img src="./images/quizmas-logo.png" class="logo" />
+      <h1 class="header">QUIZMAS</h1>
+      <form class="name">
+        <input type="text" placeholder="Vad heter du?" id="name-input-field" />
+        <button type="submit" id="name-input-button">Starta</button>
+      </form>
+    </div>
+    <div class="view-container" id="theme-select-container">
+      <button id="switch-user-button">👤</button>
+      <h3 id="name-display"></h3>
+      <h3 class="choose-theme-text">Välj ett tema</h3>
+      <div class="theme-music-container">
+        <button id="theme-music">Musik</button>
       </div>
-      <div class="view-container" id="theme-select-container">
-        <h3 id="name-display"></h3>
-        <h3 class="choose-theme-text">Välj ett tema</h3>
-        <div class="theme-music-container">
-          <button id="theme-music">Music</button>
-        </div>
-        <div class="theme-movies-container">
-          <button id="theme-movies">Movies & TV-shows</button>
-        </div>
-        <div class="theme-geography-container">
-          <button id="theme-geography">Geography</button>
-        </div>
-        <div class="theme-christmas-container">
-          <button id="theme-christmas">Christmas</button>
-        </div>
+      <div class="theme-movies-container">
+        <button id="theme-movies">Filmer & TV-serier</button>
       </div>
+      <div class="theme-geography-container">
+        <button id="theme-geography">Geografi</button>
+      </div>
+      <div class="theme-christmas-container">
+        <button id="theme-christmas">Jul</button>
+      </div>
+    </div>
 
  <div class="results-container view-container" id="results-container">
     <h2>Results container</h2>
@@ -57,11 +89,11 @@
     <button id="restart-button">Start a new quiz</button>
   </div>
 
-  <div class="quiz-container view-container" id="quiz-container">
-    <h2>Quiz container</h2>
-    <div id="answer-check-display" class="answer-check-label"></div>
-  </div>
-  
-  </body>
-</html>
+    <div class="quiz-container view-container" id="quiz-container">
+      <h2>Quiz container</h2>
+      <div id="answer-check-display" class="answer-check-label"></div>
+    </div>
 
+</body>
+
+</html>

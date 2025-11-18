@@ -1,3 +1,4 @@
+/*-------CSS RESET-------*/
 *,
 *::before,
 *::after {
@@ -45,6 +46,16 @@ h6 {
   overflow-wrap: break-word;
 }
 
+/*------------------*/
+
+/*----VARIABLES------*/
+
+:root {
+  --background-red: #6a1919;
+  --background-black: #2f2f2f;
+}
+
+/*------------------*/
 .logo {
   height: 300px;
   width: 300px;
@@ -61,7 +72,7 @@ h6 {
 .choose-theme-text {
   position: absolute;
   color: #fff;
-  background-color: #2f2f2f;
+  background-color: var(--background-red);
   font-size: 40px;
   z-index: 1;
   border-radius: 20px;
@@ -71,25 +82,62 @@ h6 {
 .main-container {
   width: 100vw;
   height: 100vh;
-  background-color: #6a1919;
+  background-color: var(--background-red);
   z-index: 1;
   position: relative;
 }
 
 .view-container {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+  transform: scale(0.95);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.view-container.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 10;
 }
 
 #name-input-field {
   font-size: 48px;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 10px;
+  border: none;
+  height: 100px;
+  margin-right: 10px;
+}
+
+#name-input-field:focus {
+  outline: none;
 }
 
 #name-input-button {
   font-size: 48px;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 10px;
+  background-color: var(--background-black);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  height: 100px;
+}
+
+#name-input-button:hover {
+  transform: scale(1.1);
 }
 
 span.correct {
@@ -115,27 +163,33 @@ span.incorrect {
   background-color: gray;
   border: 1px solid black;
   color: black;
-  display: inline-block;
+  display: none;
   top: 55%;
   z-index: 3;
+  animation: pulse 1.5s ease-in-out infinite;
 }
 
-.active {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 #name-display {
   position: absolute;
-  top: 0;
-  z-index: 9;
+  top: 20px;
   color: #fff;
-  font-size: 48px;
+  font-size: 28px;
+  background-color: var(--background-red);
+  z-index: 1;
+  border-radius: 20px;
+  padding: 10px 20px;
 }
 
 .theme-music-container,
@@ -171,19 +225,19 @@ span.incorrect {
 }
 
 .theme-music-container::before {
-  background-image: url("/images/theme-music.jpg");
+  background-image: url("images/theme-music.jpg");
 }
 
 .theme-christmas-container::before {
-  background-image: url("/images/theme-christmas.jpg");
+  background-image: url("images/theme-christmas.jpg");
 }
 
 .theme-movies-container::before {
-  background-image: url("/images/theme-movies.webp");
+  background-image: url("images/theme-movies.webp");
 }
 
 .theme-geography-container::before {
-  background-image: url("/images/theme-geography.jpg");
+  background-image: url("images/theme-geography.jpg");
 }
 
 /* Hover effect - scale the pseudo-element */
@@ -215,7 +269,7 @@ span.incorrect {
 .question-text {
   position: absolute;
   font-size: 38px;
-  background-color: #2f2f2f;
+  background-color: var(--background-red);
   border-radius: 30px;
   padding: 10px 30px;
   color: #fff;
@@ -224,7 +278,7 @@ span.incorrect {
 
 .next-question-button {
   position: absolute;
-  background-color: #2f2f2f;
+  background-color: var(--background-black);
   border-radius: 30px;
   padding: 10px 30px;
   color: #fff;
@@ -234,10 +288,10 @@ span.incorrect {
 }
 
 .next-question-button:hover {
-  background-color: #5e5d5d;
+  animation: none;
 }
 
-.next-question-button::before {
+/*.next-question-button::before {
   content: "Temporary :)";
   position: absolute;
   top: 0px;
@@ -248,7 +302,7 @@ span.incorrect {
   border-radius: 10px;
   padding: 2px 5px;
   transform: rotate(-24deg);
-}
+}*/
 
 .answer-button {
   width: 50%;
@@ -265,7 +319,8 @@ span.incorrect {
 }
 
 .answer-button:not(:disabled):hover {
-  font-size: 40px;
+  font-size: 28px;
+  box-shadow: inset 0 0 10px 10px var(--background-black);
 }
 
 .answer-button:disabled {
@@ -349,7 +404,7 @@ span.incorrect {
 
 .answer-check-text {
   position: absolute;
-  top: 40%;
+  top: 23%;
   font-size: 38px;
   z-index: 3;
 }
@@ -365,6 +420,7 @@ span.incorrect {
   top: 30%;
   z-index: 3;
   border-radius: 50%;
+  border: 10px solid var(--background-red);
 }
 
 @keyframes scaleInBounce {
@@ -382,9 +438,9 @@ span.incorrect {
   position: absolute;
   z-index: 3;
   padding: 10px;
-  top: 20px;
-  left: 20px;
-  background: #2f2f2f;
+  top: 30px;
+  left: 30px;
+  background-color: var(--background-black);
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -402,71 +458,70 @@ span.incorrect {
 }
 
 .quizTimer {
-    position: fixed;
-    top: 20px;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 15px;
-    background-color: #2f2f2f;
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 6;
-    transform: translateX(-50%);
+  position: fixed;
+  top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+  background-color: var(--background-black);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 6;
 }
 
 .timer-text {
-    color: white;
-    font-size: 3.7rem;
-    line-height: 1;
-    margin: 0;
-    padding: 0;
+  color: white;
+  font-size: 3.7rem;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
 }
 
 .timer-bar {
-    width: 120px;
-    height: 15px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
-    flex-shrink: 0;
+  width: 120px;
+  height: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .timer-bar-fill {
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    border-radius: 8px;
-    transition: width 1s linear;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  transition: width 1s linear;
 }
 
 .quizTimer.warning .timer-text {
-    color: #ff4444;
-    font-size: 3.7rem;
+  color: #ff4444;
+  font-size: 3.7rem;
 }
 
 .quizTimer.warning .timer-bar {
-    background-color: rgba(255, 68, 68, 0.3);
+  background-color: rgba(255, 68, 68, 0.3);
 }
 
 .quizTimer.warning .timer-bar-fill {
-    background-color: #ff4444;
+  background-color: #ff4444;
 }
 
 .snowflake-button {
   display: block;
   position: absolute;
-  background-color: #2f2f2f;
+  background-color: var(--background-black);
   border-radius: 50%;
   width: 50px;
   height: 50px;
   z-index: 1000;
   /* top: 10px;*/
-  left: 80px;
-  bottom: 20px;
+  left: 90px;
+  bottom: 30px;
   font-size: 32px;
   border: none;
   color: #fff;
@@ -501,11 +556,11 @@ body.snow-active .snowflake {
 
 .mute-button {
   position: absolute;
-  z-index: 3;
+  z-index: 1000;
   padding: 10px;
-  bottom: 20px;
-  left: 20px;
-  background: #2f2f2f;
+  bottom: 30px;
+  left: 30px;
+  background-color: var(--background-black);
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -522,6 +577,7 @@ body.snow-active .snowflake {
   transform: scale(1.1);
 }
 
+<<<<<<< HEAD:css/style.css
 #high-score-view {
   border: 2px double black;
   border-radius: 7px;
@@ -533,3 +589,28 @@ body.snow-active .snowflake {
   width: 300px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+=======
+#switch-user-button {
+  position: absolute;
+  z-index: 1000;
+  padding: 10px;
+  top: 30px;
+  color: #fff;
+  left: 30px;
+  background-color: var(--background-black);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+#switch-user-button:hover {
+  transform: scale(1.1);
+}
+>>>>>>> main:style.css

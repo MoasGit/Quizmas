@@ -6,7 +6,7 @@
         "question": "Which pop star is known as the “Queen of Pop”?",
         "options": ["Madonna", "Lady Gaga", "Britney Spears", "Taylor Swift"],
         "answer": 0,
-        "image": "/images/question-images/queen-of-pop.jpg"
+        "image": "./images/question-images/queen-of-pop.jpg"
       },
       {
         "id": 2,
@@ -18,14 +18,14 @@
           "Calvin Broadus"
         ],
         "answer": 1,
-        "image": "/images/question-images/eminem.jpg"
+        "image": "./images/question-images/eminem.jpg"
       },
       {
         "id": 3,
         "question": "In what year did Beyoncé release her debut solo album, Dangerously in Love?",
         "options": ["2001", "2003", "2005", "2007"],
         "answer": 1,
-        "image": "/images/question-images/beyonce.webp"
+        "image": "./images/question-images/beyonce.webp"
       },
       {
         "id": 4,
@@ -37,14 +37,14 @@
           "The Who"
         ],
         "answer": 2,
-        "image": "/images/question-images/uk.png"
+        "image": "./images/question-images/uk.png"
       },
       {
         "id": 5,
         "question": "What musical instrument has keys, pedals, and strings, and is often found in classical music?",
         "options": ["Violin", "Harp", "Piano", "Organ"],
         "answer": 2,
-        "image": "/images/question-images/instrument.avif"
+        "image": "./images/question-images/instrument.avif"
       },
       {
         "id": 6,
@@ -56,112 +56,138 @@
           "Don't Stop Me Now"
         ],
         "answer": 1,
-        "image": "/images/question-images/queen.jpg"
+        "image": "./images/question-images/queen.jpg"
       },
       {
         "id": 7,
         "question": "What is the highest male singing voice called?",
         "options": ["Tenor", "Baritone", "Bass", "Countertenor"],
         "answer": 3,
-        "image": "/images/question-images/male-singing.jpeg"
+        "image": "./images/question-images/male-singing.jpeg"
       },
       {
         "id": 8,
         "question": "Who won the Eurovision Song Contest for Sweden in 1974 with the song Waterloo?",
         "options": ["Roxette", "Ace of Base", "ABBA", "The Cardigans"],
         "answer": 2,
-        "image": "/images/question-images/sweden.jpeg"
+        "image": "./images/question-images/sweden.jpeg"
       },
       {
         "id": 9,
         "question": "Which artist holds the record for the most Grammy Awards won by a female artist (as of 2025)?",
         "options": ["Adele", "Taylor Swift", "Beyoncé", "Aretha Franklin"],
         "answer": 2,
-        "image": "/images/question-images/grammy.jpg"
+        "image": "./images/question-images/grammy.jpg"
       },
       {
         "id": 10,
         "question": "What genre of music did Bob Marley help popularize worldwide?",
         "options": ["Jazz", "Reggae", "Soul", "Calypso"],
         "answer": 1,
-        "image": "/images/question-images/bob-marley.webp"
+        "image": "./images/question-images/bob-marley.webp"
       }
     ],
     "movies": [
       {
         "id": 1,
         "question": "Vem spelar huvudrollen i filmen Joker (2019)?",
-        "options": ["Jared Leto", "Joaquin Phoenix", "Christian Bale", "Heath Ledger"],
+        "options": [
+          "Jared Leto",
+          "Joaquin Phoenix",
+          "Christian Bale",
+          "Heath Ledger"
+        ],
         "answer": 1,
-        "image": "/images/question-images/joker2019.jpg"
+        "image": "./images/question-images/joker2019.jpg"
       },
       {
         "id": 2,
         "question": "Vad heter planeten som Avatar (2009) utspelar sig på?",
         "options": ["Krypton", "Pandora", "Vulcan", "Endor"],
         "answer": 1,
-        "image": "/images/question-images/avatar.png"
+        "image": "./images/question-images/avatar.png"
       },
       {
-        "id":3,
-        "question":"Vem sjöng låten 'My heart will go on' från titanic (1997)?",
-        "options": [ "Whitney Houston", "Mariah Carey","Celine Dion", "Christina Aguilera"],
+        "id": 3,
+        "question": "Vem sjöng låten 'My heart will go on' från titanic (1997)?",
+        "options": [
+          "Whitney Houston",
+          "Mariah Carey",
+          "Celine Dion",
+          "Christina Aguilera"
+        ],
         "answer": 2,
-        "image":"/images/question-images/titanic.webp"
+        "image": "./images/question-images/titanic.webp"
       },
       {
-        "id":4,
-        "question":"Vem regisserade filmen 'Pulp Fiction'?",
-        "options": [ "Martin Scorsese", "Steven Spielberg", "James Cameron", "Quentin Tarantino"],
+        "id": 4,
+        "question": "Vem regisserade filmen 'Pulp Fiction'?",
+        "options": [
+          "Martin Scorsese",
+          "Steven Spielberg",
+          "James Cameron",
+          "Quentin Tarantino"
+        ],
         "answer": 3,
-        "image":"/images/question-images/pulpfiction.jpg"
+        "image": "./images/question-images/pulpfiction.jpg"
       },
       {
-        "id":5,
-        "question":"Vilken film kommer citatet 'my precious' ifrån?",
-        "options": [ "Harry Potter", "The Lord of the Rings", "The Hobbit", "The Chronicles of Narnia"],
+        "id": 5,
+        "question": "Vilken film kommer citatet 'my precious' ifrån?",
+        "options": [
+          "Harry Potter",
+          "The Lord of the Rings",
+          "The Hobbit",
+          "The Chronicles of Narnia"
+        ],
         "answer": 1,
-        "image":"/images/question-images/gollum.jpg"
+        "image": "./images/question-images/gollum.jpg"
       },
       {
-        "id":6,
-        "question":"Vilken superhjälte spelas av Robert Downey Jr. i Marvel-filmerna?",
+        "id": 6,
+        "question": "Vilken superhjälte spelas av Robert Downey Jr. i Marvel-filmerna?",
         "options": ["Captain America", "Thor", "Iron Man", "Hulk"],
         "answer": 2,
-        "image": "/images/question-images/rdj.jpg"
+        "image": "./images/question-images/rdj.jpg"
       },
       {
-        "id":7,
-        "question":"I flimserien Guardians of the Galaxy, vad heter tvättbjörnen?",
+        "id": 7,
+        "question": "I flimserien Guardians of the Galaxy, vad heter tvättbjörnen?",
         "options": ["Rocket", "Groot", "Rex", "Racco"],
         "answer": 0,
-        "image":"/images/question-images/rocket.jpg"
-
-
+        "image": "./images/question-images/rocket.jpg"
       },
       {
-        "id":8,
+        "id": 8,
         "question": "Vem spelar John Wick?",
-        "options": [ "Brad Pitt", "Tom Cruise","Keanu Reeves", "Matt Damon"],
+        "options": ["Brad Pitt", "Tom Cruise", "Keanu Reeves", "Matt Damon"],
         "answer": 2,
-        "image": "/images/question-images/johnwick.jpg"
-   
+        "image": "./images/question-images/johnwick.jpg"
       },
       {
-        "id":9,
-        "question":"Vilken film vann Oscar för bästa film 2024?",
-        "options": ["Barbie", "Oppenheimer", "The Fabelmans", "Everything Everywhere All at Once"],
+        "id": 9,
+        "question": "Vilken film vann Oscar för bästa film 2024?",
+        "options": [
+          "Barbie",
+          "Oppenheimer",
+          "The Fabelmans",
+          "Everything Everywhere All at Once"
+        ],
         "answer": 1,
-        "image": "/images/question-images/oscar.jpg"
+        "image": "./images/question-images/oscar.jpg"
       },
       {
-        "id":10,
-        "question":"Vilken skådespelare spelar huvudrollen i filmen 'Forrest Gump'?",
-        "options": ["Tom Hanks", "Brad Pitt", "Leonardo DiCaprio", "Johnny Depp"],
+        "id": 10,
+        "question": "Vilken skådespelare spelar huvudrollen i filmen 'Forrest Gump'?",
+        "options": [
+          "Tom Hanks",
+          "Brad Pitt",
+          "Leonardo DiCaprio",
+          "Johnny Depp"
+        ],
         "answer": 0,
-        "image": "/images/question-images/forrestgump.jpg"
+        "image": "./images/question-images/forrestgump.jpg"
       }
-
     ],
     "geography": [
       {
@@ -169,71 +195,70 @@
         "question": "Vilket är världens största land till ytan?",
         "options": ["Kina", "USA", "Australien", "Ryssland"],
         "answer": 3,
-        "image": "/images/question-images/antikKarta.jpg"
+        "image": "./images/question-images/antikKarta.jpg"
       },
       {
         "id": 2,
         "question": "Vilken är Sveriges största sjö?",
         "options": ["Vättern", "Mälaren", "Vänern", "Storsjön"],
         "answer": 2,
-        "image": "/images/question-images/lakePic.jpg"
-
+        "image": "./images/question-images/lakePic.jpg"
       },
       {
         "id": 3,
         "question": "Vad heter Kanadas huvudstad?",
         "options": ["Montréal", "Ottawa", "Toronto", "Vancouver"],
         "answer": 1,
-        "image": "/images/question-images/kanadaFlagga.png"
+        "image": "./images/question-images/kanadaFlagga.png"
       },
       {
         "id": 4,
         "question": "Vilket land har staden Marrakech",
         "options": ["Marocko", "Tunisien", "Libyen", "Mauretanien"],
         "answer": 0,
-        "image": "/images/question-images/marrakesh.jpg"
+        "image": "./images/question-images/marrakesh.jpg"
       },
       {
         "id": 5,
         "question": "Vilket land har flest grannländer?",
         "options": ["Slovakien", "Bhutan", "Kina", "Bolivia"],
         "answer": 2,
-        "image": "/images/question-images/worldFlags.jpg"
+        "image": "./images/question-images/worldFlags.jpg"
       },
       {
         "id": 6,
         "question": "Vad heter huvudstaden i Kazakstan",
         "options": ["Dusjanbe", "Bisjkek", "Kabul", "Astana"],
         "answer": 3,
-        "image": "/images/question-images/kazakstanFlagga.png"
+        "image": "./images/question-images/kazakstanFlagga.png"
       },
       {
         "id": 7,
         "question": "På vilken kontinent ligger Chile? ",
         "options": ["Afrika", "Sydamerika", "Asien", "Europa"],
         "answer": 1,
-        "image": "/images/question-images/kontinenter.jpg"
+        "image": "./images/question-images/kontinenter.jpg"
       },
       {
         "id": 8,
         "question": "Vad heter det hav som ligger mellan Storbritannien och Norge?",
         "options": ["Östersjön", "Nordsjön", "Atlanten", "Stilla havet"],
         "answer": 1,
-        "image": "/images/question-images/havMellanLand.avif"
+        "image": "./images/question-images/havMellanLand.avif"
       },
       {
         "id": 9,
         "question": "Vad heter bergskedjan som Mount Everest befinner sig i?",
         "options": ["Himalaya", "Uralbergen", "Ardennerna", "Anderna"],
         "answer": 0,
-        "image": "/images/question-images/mountEverest.jpg"
+        "image": "./images/question-images/mountEverest.jpg"
       },
       {
         "id": 10,
         "question": "Vilket land har världens högsta befolkningstäthet?",
         "options": ["Kina", "Taiwan", "Japan", "Monaco"],
         "answer": 3,
-        "image": "/images/question-images/lotsOfPeople.jpg"
+        "image": "./images/question-images/lotsOfPeople.jpg"
       }
     ],
     "christmas": [

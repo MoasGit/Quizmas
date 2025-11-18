@@ -577,7 +577,6 @@ body.snow-active .snowflake {
   transform: scale(1.1);
 }
 
-<<<<<<< HEAD:css/style.css
 #high-score-view {
   border: 2px double black;
   border-radius: 7px;
@@ -589,7 +588,6 @@ body.snow-active .snowflake {
   width: 300px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-=======
 #switch-user-button {
   position: absolute;
   z-index: 1000;
@@ -613,4 +611,3 @@ body.snow-active .snowflake {
 #switch-user-button:hover {
   transform: scale(1.1);
 }
->>>>>>> main:style.css

@@ -226,16 +226,6 @@ function displayQuiz(themes) {
 
       localStorage.setItem("playerScoreHistory", JSON.stringify(playersArray));
 
-<<<<<<< HEAD:js/app.js
-        let highScoreArray = playersArray.slice().sort((a, b) => Number(b.score) - Number(a.score))
-        
-        highScore.innerHTML = "";
-        highScoreArray.slice(0, 5).forEach((a) => {
-          let li = document.createElement("li");
-          li.innerHTML = `Spelare: ${a.name}, Score: ${a.score}`
-          highScore.appendChild(li)
-        })
-=======
       let highScoreArray = playersArray
         .slice()
         .sort((a, b) => Number(b.score) - Number(a.score));
@@ -245,7 +235,6 @@ function displayQuiz(themes) {
         li.innerHTML = `Spelare: ${a.name}, Score: ${a.score}`;
         highScore.appendChild(li);
       });
->>>>>>> main:app.js
     }
   });
 

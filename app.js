@@ -119,6 +119,8 @@ async function fetchQuiz(themeChoice) {
   closeBtn.addEventListener("click", function(){
     modal.style.display = "none";
   });
+
+  // ----------------------------------------
   
 //FÅR DET ATT SNÖA!
 let snowButton = document.createElement("button");
@@ -150,6 +152,7 @@ function createSnowflakes() {
     document.body.appendChild(snowflake);
   }
 }
+// ----------------------------------
 
 ///DET HÄR GJORDE AI - EVENTLYSSNARE FÖR TEMAVAL-KNAPPARNA (VARFÖR WRAPPA FUNKTION I FUNKTION???)
 // Add click handlers - pass the theme name as a string and wrap fetchQuiz in a function

@@ -579,11 +579,22 @@ body.snow-active .snowflake {
 
 .highscore-button {
   position: absolute;
-  z-index: 200;
   padding: 10px;
   bottom: 20px;
   right: 20px;
   background: #2f2f2f;
+  z-index: 1000;
+  background-color: var(--background-black);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
 }
 #high-score-view {
   border: 2px double black;

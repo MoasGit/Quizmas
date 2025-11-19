@@ -54,7 +54,7 @@ let questionIndex = -1;
 let playerPoints = 0;
 let playerTotalScore = 0;
 
-///STYR VAD KNAPPEN SKA GÖRA I NAMN CONTAINERN
+///STYR VAD KNAPPEN SKA GÖRA I NAMN CONTAINERN//
 nameInputField.addEventListener("focus", () => {
   playerList.innerHTML = "";
   let playerNames =
@@ -81,6 +81,8 @@ nameInputBtn.addEventListener("click", function (e) {
   themeSelectView.classList.add("active");
   nameDisplay.textContent = `Välkommen ${playerName}!`;
 });
+
+//TEST
 
 ///KNAPP FÖR ATT BYTA ANVÄNDARE
 switchUserBtn.addEventListener("click", function () {

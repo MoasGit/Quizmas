@@ -153,6 +153,23 @@ h6 {
   color: #fbdd8d;
 }
 
+#player-choice {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 5px;
+  width: 600px;
+  height: 80px;
+  overflow: hidden;
+  color: #cfbd8b;
+  visibility: hidden;
+  text-align: center;
+  margin-top: 10px; 
+}
+
+#player-choice span:hover {
+ cursor: pointer;
+}
+
 span.correct {
   color: #fff;
   background-color: green;

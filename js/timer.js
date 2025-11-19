@@ -38,7 +38,7 @@ function tickTock() {
   if (timeLeft <= 0) {
     stop();
     if (timesUp) {
-      timesUp();
+    timesUp();
     }
   }
 }

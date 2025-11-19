@@ -67,6 +67,7 @@ h6 {
   font-style: normal;
   font-size: 68px;
   color: #f1d695;
+  text-align: center;
 }
 
 .choose-theme-text {
@@ -138,6 +139,10 @@ h6 {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   height: 100px;
+}
+
+.answer-check-text {
+  top: 190px;
 }
 
 #name-input-button:hover {
@@ -299,6 +304,7 @@ span.incorrect {
   padding: 10px 30px;
   color: #fff;
   z-index: 3;
+  text-align: center;
 }
 
 .next-question-button {
@@ -429,7 +435,6 @@ span.incorrect {
 
 .answer-check-text {
   position: absolute;
-  top: 23%;
   font-size: 38px;
   z-index: 3;
 }
@@ -442,7 +447,7 @@ span.incorrect {
   position: absolute;
   width: 200px;
   height: 200px;
-  top: 30%;
+  top: 280px;
   z-index: 3;
   border-radius: 50%;
   border: 10px solid var(--background-red);
@@ -715,6 +720,7 @@ body.snow-active .snowflake {
   bottom: 30px;
   position: absolute;
   color: #fbdc8d;
+  text-align: center;
 }
 
 .version-container {
@@ -723,4 +729,112 @@ body.snow-active .snowflake {
   top: 30px;
   right: 30px;
   font-size: 30px;
+}
+
+.time-up-message {
+    color: #ff4444;
+    font-size: 2rem;
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  #theme-music,
+  #theme-movies,
+  #theme-geography,
+  #theme-christmas {
+    font-size: 30px;
+  }
+
+  .choose-theme-text {
+    font-size: 30px;
+  }
+
+  #switch-user-button {
+    top: 20px;
+    left: 20px;
+  }
+
+  #name-input-button {
+    font-size: 38px;
+  }
+
+  #name-input-field {
+    font-size: 38px;
+  }
+
+  .mute-button {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .snowflake-button {
+    bottom: 20px;
+    left: 80px;
+  }
+
+  .highscore-button {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .copyright-container {
+    bottom: 100px;
+  }
+
+  .question-text {
+    font-size: 28px;
+  }
+
+  .answer-check-text {
+    font-size: 28px;
+  }
+
+  .quizTimer {
+    top: 20px;
+  }
+
+  .timer-text {
+    font-size: 50px;
+  }
+
+  .question-image-container {
+    top: 280px;
+  }
+
+  .answer-check-text {
+    top: 190px;
+  }
+}
+
+@media (max-width: 768px) {
+  #name-input-button {
+    font-size: 28px;
+  }
+
+  #name-input-field {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 576px) {
+  #name-input-button {
+    font-size: 18px;
+  }
+
+  #name-input-field {
+    font-size: 18px;
+  }
+
+  #theme-music,
+  #theme-movies,
+  #theme-geography,
+  #theme-christmas {
+    font-size: 22px;
+  }
+
+  #name-display {
+    font-size: 18px;
+  }
 }

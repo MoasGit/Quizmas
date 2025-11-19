@@ -35,7 +35,7 @@ function tickTock() {
   updateTimerText();
 
   //Kollar om tiden är ute
-  if (timeLeft <= -1) {
+  if (timeLeft <= 0) {
     stop();
     if (timesUp) {
     timesUp();
@@ -47,10 +47,12 @@ function tickTock() {
 export function init(element, callback) {
   quizTimer = element;
   timesUp = callback;
+  start();
 }
 
 //startar nedräkningen
 export function start() {
+  stop();
   timeLeft = 10;
   updateTimerText();
 

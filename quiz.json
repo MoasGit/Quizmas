@@ -3,14 +3,14 @@
     "music": [
       {
         "id": 1,
-        "question": "Which pop star is known as the “Queen of Pop”?",
-        "options": ["Madonna", "Lady Gaga", "Britney Spears", "Taylor Swift"],
+        "question": "Hur många strängar har vanligtvis en gitarr?",
+        "options": ["6", "5", "4", "3"],
         "answer": 0,
-        "image": "./images/question-images/queen-of-pop.jpg"
+        "image": "./images/question-images/strings.jpg"
       },
       {
         "id": 2,
-        "question": "What is the real name of the artist who performs as “Eminem”?",
+        "question": "Vad heter “Eminem” på riktigt?",
         "options": [
           "Shawn Carter",
           "Marshall Mathers",
@@ -22,69 +22,70 @@
       },
       {
         "id": 3,
-        "question": "In what year did Beyoncé release her debut solo album, Dangerously in Love?",
-        "options": ["2001", "2003", "2005", "2007"],
+        "question": "Vilken musikgenre populäriserade Bob Marley?",
+        "options": ["Jazz", "Reggae", "Soul", "Blues"],
         "answer": 1,
-        "image": "./images/question-images/beyonce.webp"
+        "image": "./images/question-images/bob-marley.webp"
       },
       {
         "id": 4,
-        "question": "Which British band released the album Abbey Road in 1969?",
-        "options": [
-          "The Rolling Stones",
-          "Pink Floyd",
-          "The Beatles",
-          "The Who"
-        ],
-        "answer": 2,
-        "image": "./images/question-images/uk.png"
+        "question": "Vilken pop-stjärna är känd som “The Queen of Pop”?",
+        "options": ["Madonna", "Lady Gaga", "Britney Spears", "Taylor Swift"],
+        "answer": 0,
+        "image": "./images/question-images/queen-of-pop.jpg"
       },
       {
         "id": 5,
-        "question": "What musical instrument has keys, pedals, and strings, and is often found in classical music?",
-        "options": ["Violin", "Harp", "Piano", "Organ"],
+        "question": "Vilken av dessa är INTE en musikgenre?",
+        "options": ["Deathcore", "Emo", "Circus-Pop", "Hair-metal"],
         "answer": 2,
-        "image": "./images/question-images/instrument.avif"
+        "image": "./images/question-images/genres.jpg"
       },
       {
         "id": 6,
-        "question": "Which song by Queen begins with the lyrics, “Is this the real life? Is this just fantasy?”",
+        "question": "Vilken låt är världens mest streamade på Spotify?",
         "options": [
-          "We Are the Champions",
-          "Bohemian Rhapsody",
-          "Somebody to Love",
-          "Don't Stop Me Now"
+          "As It Was - Harry Styles",
+          "Blinding Lights - The Weeknd",
+          "Shape of You - Ed Sheeran",
+          "Someone You Loved - Lewis Capaldi"
         ],
         "answer": 1,
-        "image": "./images/question-images/queen.jpg"
+        "image": "./images/question-images/spotify.jpg"
       },
+
       {
         "id": 7,
-        "question": "What is the highest male singing voice called?",
-        "options": ["Tenor", "Baritone", "Bass", "Countertenor"],
-        "answer": 3,
-        "image": "./images/question-images/male-singing.jpeg"
-      },
-      {
-        "id": 8,
-        "question": "Who won the Eurovision Song Contest for Sweden in 1974 with the song Waterloo?",
-        "options": ["Roxette", "Ace of Base", "ABBA", "The Cardigans"],
+        "question": "Hur många gånger har Sverige vunnit Eurovision Song Contest?",
+        "options": ["10", "4", "7", "9"],
         "answer": 2,
         "image": "./images/question-images/sweden.jpeg"
       },
       {
-        "id": 9,
-        "question": "Which artist holds the record for the most Grammy Awards won by a female artist (as of 2025)?",
-        "options": ["Adele", "Taylor Swift", "Beyoncé", "Aretha Franklin"],
+        "id": 8,
+        "question": "Vilken kvinnlig artist har vunnit flest Grammys?",
+        "options": ["Adele", "Taylor Swift", "Beyoncé", "Madonna"],
         "answer": 2,
         "image": "./images/question-images/grammy.jpg"
       },
       {
+        "id": 9,
+        "question": "Vad kallas den högsta manliga sångrösten?",
+        "options": ["Tenor", "Baryton", "Bas", "Kontratenor"],
+        "answer": 3,
+        "image": "./images/question-images/male-singing.jpeg"
+      },
+      {
         "id": 10,
-        "question": "What genre of music did Bob Marley help popularize worldwide?",
-        "options": ["Jazz", "Reggae", "Soul", "Calypso"],
-        "answer": 1,
-        "image": "./images/question-images/bob-marley.webp"
+        "question": "Vad kallas det när två eller flera rytmer spelas samtidigt?",
+        "options": [
+          "Asymmetrisk rytm",
+          "Alternerande rytm",
+          "Polyrytmik",
+          "Progressiv rytm"
+        ],
+        "answer": 2,
+        "image": "./images/question-images/rythm.jpg"
       }
     ],
     "movies": [

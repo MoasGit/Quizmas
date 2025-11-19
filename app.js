@@ -3,11 +3,12 @@ import {
   correctSound,
   incorrectSound,
   jingleSound,
+  timeIsUpSound,
   setupMuteButton,
   playSound,
 } from "./js/sound-effects.js";
 
-import { init, start, stop} from "./js/timer.js";
+import { init, start, stop } from "./js/timer.js";
 
 const quizTimer = document.getElementById("question-timer");
 
@@ -59,21 +60,19 @@ nameInputField.addEventListener("focus", () => {
   let playerNames =  JSON.parse(localStorage.getItem("playerScoreHistory")) || [];
   if(playerNames.length > 0){
     playerChoice.style.visibility = "visible";
-    playerNames.forEach(name => {
+    playerNames.forEach((name) => {
       let span = document.createElement("span");
       span.textContent = `${name.name}`;
       span.style.marginLeft = "14px";
       span.style.fontSize = "1.2rem";
       span.style.color = "white";
-      playerList.appendChild(span)
-      span.addEventListener("click", ()=> {
+      playerChoice.appendChild(span);
+      span.addEventListener("click", () => {
         nameInputField.value = span.textContent;
-      })
-    })
+      });
+    });
   }
-
-
-})
+});
 nameInputBtn.addEventListener("click", function (e) {
   e.preventDefault();
   playerName = nameInputField.value.trim() || "Tomtenisse"; //Tar bort empy spaces (AI)
@@ -123,15 +122,15 @@ function showHighscores() {
   let playersArray =
     JSON.parse(localStorage.getItem("playerScoreHistory")) || [];
 
-  let sorted = playersArray.slice().sort((a, b) => b.score - a.score);
-  let topFivePlayers = sorted.slice(0, 5);
-
+  let highScoreArray = playersArray
+    .slice()
+    .sort((a, b) => Number(b.score) - Number(a.score));
   highscoreList.innerHTML = "";
 
-  topFivePlayers.forEach((player) => {
+  highScoreArray.slice(0, 5).forEach((a) => {
     let li = document.createElement("li");
-    li.textContent = `Spelare: ${player.name}, Score: ${player.score}`;
-    highscoreList.appendChild(li);
+    li.innerHTML = `Spelare: ${a.name}, Score: ${a.score}`;
+    highScore.appendChild(li);
   });
 }
 
@@ -142,6 +141,12 @@ highscoreBtn.addEventListener("click", function () {
 
 closeBtn.addEventListener("click", function () {
   modal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
 });
 
 //FÅR DET ATT SNÖA!
@@ -239,6 +244,7 @@ function displayQuiz(themes) {
   let nextBtn = document.createElement("button");
   nextBtn.innerHTML = `Nästa fråga &#8594;`;
   nextBtn.classList.add("next-question-button");
+  nextBtn.style.display = "none";
   quizView.appendChild(nextBtn);
 
   ////NÄSTA-KNAPP EFTER VARJE FRÅGA
@@ -246,9 +252,11 @@ function displayQuiz(themes) {
   nextBtn.addEventListener("click", function () {
     if (questionIndex < arrLength - 1) {
       stop();
+      timeUpMessage.style.display = "none";
       displayQuiz(themes);
     } else {
       stop();
+      timeUpMessage.style.display = "none";
       quizView.classList.remove("active");
       resultsView.classList.add("active");
       playerScore.innerHTML = `Total score ${playerPoints}`;
@@ -315,10 +323,11 @@ function displayQuiz(themes) {
     });
   });
 
+  const answerButtons = quizView.querySelectorAll(".answer-button");
+
   ///FUNKTIONEN SOM CHECKAR OM SVARET ÄR RÄTT
   function checkAnswer(selectedIdx) {
     ///DISABLEA KNAPPARNA EFTER MAN SVARAT
-    const answerButtons = quizView.querySelectorAll(".answer-button");
     for (let i = 0; i < answerButtons.length; i++) {
       answerButtons[i].disabled = true;
     }
@@ -362,7 +371,14 @@ function displayQuiz(themes) {
     highscoreBtn.style.display = "flex";
   });
 
-  //skapa timern i HTML
+//Skapa timesup message i HTML
+let timeUpMessage = document.createElement("p");
+timeUpMessage.id = "time-up-message";
+timeUpMessage.classList.add("time-up-message");
+timeUpMessage.style.display = "none";
+quizView.appendChild(timeUpMessage);
+
+  //Skapa timern i HTML
   let quizTimer = document.createElement("div");
   quizTimer.id = "question-timer";
   quizTimer.classList.add("quizTimer");
@@ -383,24 +399,38 @@ function displayQuiz(themes) {
 
   quizView.appendChild(quizTimer);
 
-  //Initierar timern och stoppas om man nått gränsen för antal frågor
+  //Initierar timern och sätter villkor för när tiden tar slut
   init(quizTimer, function () {
-    if (questionIndex < arrLength - 1) {
-      stop();
-      displayQuiz(themes);
-    } else {
-      quizView.classList.remove("active");
-      resultsView.classList.add("active");
-      playerScore.innerHTML = `Total score ${playerPoints}`;
-      playerTotalScore += playerPoints;
-      questionIndex = -1;
-      console.log(playerTotalScore);
-      localStorage.setItem("playerScoreHistory", playerTotalScore);
+    timeUpMessage.style.display = "block";
+    nextBtn.style.display = "block";
+    playSound(timeIsUpSound);
+    const timeUpMsg = document.querySelector(".time-up-message");
+    const nextButton = document.querySelector(".next-question-button");
+    const answerCheckText = document.querySelector(".answer-check-text");
+
+    if (timeUpMsg) {
+      timeUpMsg.style.display = "block";
+    }
+
+    if (nextButton) {
+      nextButton.style.display = "block";
+    }
+
+    const answerButtons = quizView.querySelectorAll(".answer-button");
+    answerButtons.forEach((btn) => {
+      btn.disabled = true;
+    });
+
+    if (answerCheckText) {
+      answerCheckText.innerHTML = `<span class="incorrect">Tiden är slut!</span>`;
+      answerCheckText.style.animation = "none";
+      answerCheckText.offsetHeight;
+      answerCheckText.style.animation = "";
     }
   });
-
-  start();
 }
+
+start();
 
 ///NOLLSTÄLLER QUIZZET OCH GÅR TILLBAKS TILL TEMAVAL-CONTAINERN
 restartBtn.addEventListener("click", function () {

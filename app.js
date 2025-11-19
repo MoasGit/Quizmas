@@ -3,6 +3,7 @@ import {
   correctSound,
   incorrectSound,
   jingleSound,
+  timeIsUpSound,
   setupMuteButton,
   playSound,
 } from "./js/sound-effects.js";
@@ -54,24 +55,23 @@ let playerTotalScore = 0;
 
 ///STYR VAD KNAPPEN SKA GÖRA I NAMN CONTAINERN
 nameInputField.addEventListener("focus", () => {
-  let playerNames =  JSON.parse(localStorage.getItem("playerScoreHistory")) || [];
-  if(playerNames.length > 0){
+  let playerNames =
+    JSON.parse(localStorage.getItem("playerScoreHistory")) || [];
+  if (playerNames.length > 0) {
     playerChoice.style.visibility = "visible";
-    playerNames.forEach(name => {
+    playerNames.forEach((name) => {
       let span = document.createElement("span");
       span.textContent = `${name.name}`;
       span.style.marginLeft = "14px";
       span.style.fontSize = "1.2rem";
       span.style.color = "white";
-      playerChoice.appendChild(span)
-      span.addEventListener("click", ()=> {
+      playerChoice.appendChild(span);
+      span.addEventListener("click", () => {
         nameInputField.value = span.textContent;
-      })
-    })
+      });
+    });
   }
-
-
-})
+});
 nameInputBtn.addEventListener("click", function (e) {
   e.preventDefault();
   playerName = nameInputField.value.trim() || "Tomtenisse"; //Tar bort empy spaces (AI)
@@ -121,15 +121,15 @@ function showHighscores() {
   let playersArray =
     JSON.parse(localStorage.getItem("playerScoreHistory")) || [];
 
-   let highScoreArray = playersArray
-        .slice()
-        .sort((a, b) => Number(b.score) - Number(a.score));
-   highscoreList.innerHTML = "";
+  let highScoreArray = playersArray
+    .slice()
+    .sort((a, b) => Number(b.score) - Number(a.score));
+  highscoreList.innerHTML = "";
 
-      highScoreArray.slice(0, 5).forEach((a) => {
-        let li = document.createElement("li");
-        li.innerHTML = `Spelare: ${a.name}, Score: ${a.score}`;
-        highScore.appendChild(li);
+  highScoreArray.slice(0, 5).forEach((a) => {
+    let li = document.createElement("li");
+    li.innerHTML = `Spelare: ${a.name}, Score: ${a.score}`;
+    highScore.appendChild(li);
   });
 }
 
@@ -377,7 +377,7 @@ timeUpMessage.classList.add("time-up-message");
 timeUpMessage.style.display = "none";
 quizView.appendChild(timeUpMessage);
 
-//Skapa timern i HTML
+  //Skapa timern i HTML
   let quizTimer = document.createElement("div");
   quizTimer.id = "question-timer";
   quizTimer.classList.add("quizTimer");
@@ -400,36 +400,36 @@ quizView.appendChild(timeUpMessage);
 
   //Initierar timern och sätter villkor för när tiden tar slut
   init(quizTimer, function () {
-  timeUpMessage.style.display = "block";
+    timeUpMessage.style.display = "block";
     nextBtn.style.display = "block";
-
-     const timeUpMsg = document.querySelector(".time-up-message");
+    playSound(timeIsUpSound);
+    const timeUpMsg = document.querySelector(".time-up-message");
     const nextButton = document.querySelector(".next-question-button");
     const answerCheckText = document.querySelector(".answer-check-text");
-    
-    if (timeUpMsg) {
-        timeUpMsg.style.display = "block";
-    }
-    
-    if (nextButton) {
-        nextButton.style.display = "block";
-    }
-    
-    const answerButtons = quizView.querySelectorAll(".answer-button");
-    answerButtons.forEach(btn => {
-        btn.disabled = true;
-    });
-    
-    if (answerCheckText) {
-        answerCheckText.innerHTML = `<span class="incorrect">Tiden är slut!</span>`;
-        answerCheckText.style.animation = "none";
-        answerCheckText.offsetHeight;
-        answerCheckText.style.animation = "";
-    }
-    });
-  };
 
-  start();
+    if (timeUpMsg) {
+      timeUpMsg.style.display = "block";
+    }
+
+    if (nextButton) {
+      nextButton.style.display = "block";
+    }
+
+    const answerButtons = quizView.querySelectorAll(".answer-button");
+    answerButtons.forEach((btn) => {
+      btn.disabled = true;
+    });
+
+    if (answerCheckText) {
+      answerCheckText.innerHTML = `<span class="incorrect">Tiden är slut!</span>`;
+      answerCheckText.style.animation = "none";
+      answerCheckText.offsetHeight;
+      answerCheckText.style.animation = "";
+    }
+  });
+}
+
+start();
 
 ///NOLLSTÄLLER QUIZZET OCH GÅR TILLBAKS TILL TEMAVAL-CONTAINERN
 restartBtn.addEventListener("click", function () {

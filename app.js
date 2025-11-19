@@ -7,7 +7,7 @@ import {
   playSound,
 } from "./js/sound-effects.js";
 
-import { init, start, stop } from "./js/timer.js";
+import { init, start, stop} from "./js/timer.js";
 
 const quizTimer = document.getElementById("question-timer");
 
@@ -26,6 +26,7 @@ const totalScoreDisplay = document.getElementById("player-total-score-display");
 
 const nameInputField = document.getElementById("name-input-field");
 const nameInputBtn = document.getElementById("name-input-button");
+const playerChoice = document.getElementById("player-choice");
 
 const nameDisplay = document.getElementById("name-display");
 const answerCheckDisplay = document.getElementById("answer-check-display");
@@ -52,6 +53,25 @@ let playerPoints = 0;
 let playerTotalScore = 0;
 
 ///STYR VAD KNAPPEN SKA GÖRA I NAMN CONTAINERN
+nameInputField.addEventListener("focus", () => {
+  let playerNames =  JSON.parse(localStorage.getItem("playerScoreHistory")) || [];
+  if(playerNames.length > 0){
+    playerChoice.style.visibility = "visible";
+    playerNames.forEach(name => {
+      let span = document.createElement("span");
+      span.textContent = `${name.name}`;
+      span.style.marginLeft = "14px";
+      span.style.fontSize = "1.2rem";
+      span.style.color = "white";
+      playerChoice.appendChild(span)
+      span.addEventListener("click", ()=> {
+        nameInputField.value = span.textContent;
+      })
+    })
+  }
+
+
+})
 nameInputBtn.addEventListener("click", function (e) {
   e.preventDefault();
   playerName = nameInputField.value.trim() || "Tomtenisse"; //Tar bort empy spaces (AI)
@@ -313,7 +333,7 @@ function displayQuiz(themes) {
 
       ///LÄGGER TILL POÄNG OM SVARET ÄR RÄTT
       playerPoints++;
-    } else {
+    } else if (selectedIdx != correctIndex || timeLeft < -1) {
       playSound(incorrectSound);
       answerCheck.innerHTML = `<span class="incorrect">Du hade fel!</span>`;
       //DESSA ÄR BARA HÄR FÖR ATT RE-TRIGGA ANIMATIONEN

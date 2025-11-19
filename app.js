@@ -370,13 +370,12 @@ function displayQuiz(themes) {
     highscoreBtn.style.display = "flex";
   });
 
-  //Skapa timesup message i HTML
-  let timeUpMessage = document.createElement("p");
-  timeUpMessage.id = "time-up-message";
-  timeUpMessage.textContent = "Tiden är ute!";
-  timeUpMessage.classList.add("time-up-message");
-  timeUpMessage.style.display = "none";
-  quizView.appendChild(timeUpMessage);
+//Skapa timesup message i HTML
+let timeUpMessage = document.createElement("p");
+timeUpMessage.id = "time-up-message";
+timeUpMessage.classList.add("time-up-message");
+timeUpMessage.style.display = "none";
+quizView.appendChild(timeUpMessage);
 
   //Skapa timern i HTML
   let quizTimer = document.createElement("div");
@@ -399,7 +398,7 @@ function displayQuiz(themes) {
 
   quizView.appendChild(quizTimer);
 
-  //Initierar timern och stoppas om man nått gränsen för antal frågor
+  //Initierar timern och sätter villkor för när tiden tar slut
   init(quizTimer, function () {
     timeUpMessage.style.display = "block";
     nextBtn.style.display = "block";

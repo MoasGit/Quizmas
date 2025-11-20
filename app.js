@@ -461,7 +461,10 @@ function displayQuiz(themes) {
   quizTimer.appendChild(timerBar);
 
   quizView.appendChild(quizTimer);
-
+  let progressCounter = document.createElement("div");
+  progressCounter.classList.add("progress-counter");
+  progressCounter.textContent = `Fråga ${questionIndex + 1} / ${arrLength}`;
+  quizView.appendChild(progressCounter);
   //Initierar timern och sätter villkor för när tiden tar slut
   init(quizTimer, function () {
     timeUpMessage.style.display = "block";

@@ -843,7 +843,28 @@ body.snow-active .snowflake {
 #silktide-cookie-icon:hover {
   transform: scale(1.1);
 }
+.progress-counter {
+  position: fixed;
+  top: 2px;
+  left: 50%;
+  
+  transform: translateX(-50%);
+  background-color: var(--background-black);
+  color: #fff;
+  padding: 4px 7px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  z-index: 100;
+  font-weight: 500;
+  pointer-events: none;
+}
+body {
+  overflow-x: hidden;
+}
 
+.main-container {
+  overflow-x: hidden;
+}
 @media (max-width: 992px) {
   #theme-music,
   #theme-movies,
@@ -911,6 +932,10 @@ body.snow-active .snowflake {
   .answer-check-text {
     top: 190px;
   }
+  .progress-counter {
+    font-size: 0.9rem;
+  }
+  
 }
 
 @media (max-width: 768px) {
@@ -942,4 +967,5 @@ body.snow-active .snowflake {
   #name-display {
     font-size: 18px;
   }
+
 }

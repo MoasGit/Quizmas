@@ -166,20 +166,55 @@ h6 {
 }
 
 #player-choice {
-  border: 1px solid white;
   border-radius: 10px;
   padding: 5px;
   width: 600px;
   height: 80px;
-  overflow: hidden;
   color: #cfbd8b;
   visibility: hidden;
   text-align: center;
   margin-top: 10px;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
 }
 
+#player-choice h3 {
+  margin-bottom: 10px;
+}
+
+#player-choice.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#player-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+#player-list span {
+  padding: 5px 20px;
+  border-radius: 10px;
+  background-color: var(--background-black);
+  font-size: 24px;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
 #player-list span:hover {
   cursor: pointer;
+  transform: scale(1.1);
+}
+
+form.name {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 span.correct {
@@ -369,12 +404,12 @@ span.incorrect {
   color: #000;
 }
 .answer-button:nth-of-type(4) {
-  background-color: #d4af37;
+  background-color: #c41e3a;
   color: #fff;
 }
 
 .answer-button:nth-of-type(5) {
-  background-color: #c41e3a;
+  background-color: #d4af37;
   color: #fff;
 }
 
@@ -541,20 +576,22 @@ span.incorrect {
 }
 
 .snowflake-button {
-  display: block;
   position: absolute;
+  z-index: 1000;
+  padding: 10px;
+  bottom: 30px;
+  left: 90px;
   background-color: var(--background-black);
   border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
   width: 50px;
   height: 50px;
-  z-index: 1000;
-  /* top: 10px;*/
-  left: 90px;
-  bottom: 30px;
-  font-size: 32px;
-  border: none;
   color: #fff;
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: all 0.2s ease-in-out;
 }
 .snowflake-button:hover {
@@ -596,7 +633,7 @@ body.snow-active .snowflake {
   font-size: 26px;
   width: 50px;
   height: 50px;
-  fill: #fff;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -622,7 +659,7 @@ body.snow-active .snowflake {
   width: 50px;
   height: 50px;
   cursor: pointer;
-  fill: #fff;
+  color: #fff;
   display: flex;
   font-size: 0px;
   transition: all 0.2s ease-in-out;
@@ -650,7 +687,7 @@ body.snow-active .snowflake {
   z-index: 1000;
   padding: 10px;
   top: 30px;
-  fill: #fff;
+  color: #fff;
   left: 30px;
   background-color: var(--background-black);
   border-radius: 50%;
@@ -673,7 +710,7 @@ body.snow-active .snowflake {
   position: absolute;
   z-index: 200;
   top: 30px;
-  right: 30px;
+  right: 90px;
   border-radius: 100%;
   border: none;
   background: #2f2f2f;
@@ -722,18 +759,23 @@ body.snow-active .snowflake {
   background-color: #fff;
   padding: 2rem;
   border-radius: 12px;
-  width: 90%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 60%;
   text-align: center;
   position: relative;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+#high-score li {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
 .close-btn {
   position: absolute;
-  top: 10px;
+  top: 0;
   right: 15px;
-  font-size: 24px;
+  font-size: 50px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -755,12 +797,14 @@ body.snow-active .snowflake {
 }
 
 .highscore-title {
-  color: blue;
+  color: var(--background-red);
   font-weight: 600;
+  font-size: 40px;
+  margin-bottom: 50px;
 }
 
 .highscore-ul-style {
-  list-style: decimal;
+  list-style: none;
 }
 
 #switch-user-button:hover {
@@ -784,7 +828,7 @@ body.snow-active .snowflake {
 
 #silktide-cookie-icon {
   position: absolute !important;
-  right: 100px !important;
+  right: 30px !important;
   top: 30px;
   width: 50px !important;
   height: 50px !important;

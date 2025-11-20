@@ -24,22 +24,19 @@
   <!-- End Google Tag Manager -->
   <script type="module" src="app.js" defer></script>
   <link rel="stylesheet" href="style.css" />
-  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mountains+of+Christmas:wght@400;700&display=swap"
     rel="stylesheet" />
-  <!-- FONT AWESOME -->
   <script src="https://kit.fontawesome.com/2090fae52f.js" crossorigin="anonymous"></script>
-  <!--Favicon-->
   <link rel="icon" href="quizmas-logo.ico" />
   <title>QUIZMAS</title>
 
   <!--SEO-optimering-->
   <meta name="description" content=" the best quiz to test your knowledge and IQ in music, geography, movies and christmas in a fast and fun way. Test your knowledge and challenge your friends!" />
   <meta name="keywords" content="quizmas, christmas quiz, music trivia, movie quiz, geography game, trivia, one-page quiz, IQ, game" />
-   <!-- Structured Data Markup --> 
+    
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -57,7 +54,7 @@
 
 </head>
 
-<!-- Google tag (GA4) (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GTD2BXM6NY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -76,7 +73,6 @@
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <div class="main-container">
-    <!-- Highscore Modal -->
     <div id="highscore-modal" class="modal">
       <div class="modal-content">
         <span class="close-btn">&times;</span>
@@ -85,7 +81,6 @@
       </div>
     </div>
     <div class="view-container active" id="name-container">
-      <!-- Header section with logo and version -->
       <div class="version-container">
         <p>v. 1.0</p>
       </div>
@@ -97,12 +92,11 @@
         <input type="text" placeholder="Vad heter du?" id="name-input-field" />
         <button type="submit" id="name-input-button">Starta</button>
       </form>
-      <!--Lista med valbara användare från localStorage-->
+      
       <div id="player-choice">
         <h3>Current players:</h3>
-        <div id="player-list"></div>
       </div>
-<!--Copyright text-->
+
       <div class="copyright-container">
         <p class="copyright-text">© Quizmas 2025 | Grupp 6: Moa, Kalle, Jesper, Ella, Douglas</p>
       </div>
@@ -114,7 +108,6 @@
             d="M256.1 248a120 120 0 1 0 0-240 120 120 0 1 0 0 240zm-29.7 56c-98.5 0-178.3 79.8-178.3 178.3 0 16.4 13.3 29.7 29.7 29.7l196.5 0 10.9-54.5c4.3-21.7 15-41.6 30.6-57.2l67.3-67.3c-28-18.3-61.4-28.9-97.4-28.9l-59.4 0zM332.3 466.9l-11.9 59.6c-.2 .9-.3 1.9-.3 2.9 0 8 6.5 14.6 14.6 14.6 1 0 1.9-.1 2.9-.3l59.6-11.9c12.4-2.5 23.8-8.6 32.7-17.5l118.9-118.9-80-80-118.9 118.9c-8.9 8.9-15 20.3-17.5 32.7zm267.8-123c22.1-22.1 22.1-57.9 0-80s-57.9-22.1-80 0l-28.8 28.8 80 80 28.8-28.8z" />
         </svg>
       </button>
-      <!--Display the name of the current player-->
       <h3 id="name-display"></h3>
 
 
@@ -134,14 +127,8 @@
       </div>
     </div>
 
-    <div class="quiz-container view-container" id="quiz-container">
-      <!-- <h2>Quiz container</h2> -->
-      <!--Visa om man hade rätt eller fel under quizet-->
-      <div id="answer-check-display" class="answer-check-label"></div>
-    </div>
-
     <div class="results-container view-container" id="results-container">
-      <!-- <h2>Results container</h2> -->
+      <h2>Results container</h2>
       <div id="player-score">0</div>
       <div id="player-total-score-display"></div>
       <div id="high-score-view">
@@ -151,7 +138,10 @@
       <button id="restart-button">Start a new quiz</button>
     </div>
 
-    
+    <div class="quiz-container view-container" id="quiz-container">
+      <h2>Quiz container</h2>
+      <div id="answer-check-display" class="answer-check-label"></div>
+    </div>
 
 </body>
 

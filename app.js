@@ -59,13 +59,11 @@ nameInputField.addEventListener("focus", () => {
   let playerNames =
     JSON.parse(localStorage.getItem("playerScoreHistory")) || [];
   if (playerNames.length > 0) {
-    playerChoice.style.visibility = "visible";
+    //playerChoice.style.visibility = "visible";
+    playerChoice.classList.add("active");
     playerNames.forEach((name) => {
       let span = document.createElement("span");
       span.textContent = `${name.name}`;
-      span.style.marginLeft = "14px";
-      span.style.fontSize = "1.2rem";
-      span.style.color = "white";
       playerList.appendChild(span);
       span.addEventListener("click", () => {
         nameInputField.value = span.textContent;
@@ -100,7 +98,7 @@ async function fetchQuiz(themeChoice) {
     if (!response.ok) {
       throw new Error(`HTTP error status ${response.status}`);
     }
-    
+
     const data = await response.json();
     // Use the themeChoice to select the correct theme array
     const selectedTheme = data.themes[themeChoice];
@@ -110,24 +108,23 @@ async function fetchQuiz(themeChoice) {
   }
 }
 ////Credits modal
- const creditsBtn = document.createElement("button");
- creditsBtn.innerHTML ='©';
- creditsBtn.classList.add("credits-button");
- document.body.appendChild(creditsBtn);
+const creditsBtn = document.createElement("button");
+creditsBtn.innerHTML = '<i data-lucide="info"></i>';
+creditsBtn.classList.add("credits-button");
+document.body.appendChild(creditsBtn);
 
+const creditsModal = document.getElementById("credits-modal");
+const closeCreditsBtn = document.querySelector(".close-cred-btn");
 
- const creditsModal = document.getElementById("credits-modal");
- const closeCreditsBtn = document.querySelector(".close-cred-btn");
+creditsBtn.addEventListener("click", function () {
+  creditsModal.style.display = "flex";
+});
 
- creditsBtn.addEventListener("click", function () {
-   creditsModal.style.display = "flex";
- });
+closeCreditsBtn.addEventListener("click", function () {
+  creditsModal.style.display = "none";
+});
 
- closeCreditsBtn.addEventListener("click", function () {
-   creditsModal.style.display = "none";
- });
-
- window.addEventListener("click", (event) => {
+window.addEventListener("click", (event) => {
   if (event.target === creditsModal) {
     creditsModal.style.display = "none";
   }
@@ -135,8 +132,7 @@ async function fetchQuiz(themeChoice) {
 
 /////HIGHSCORE MODAL SOM VISAR TOPP 5 SPELARE
 const highscoreBtn = document.createElement("button");
-highscoreBtn.innerHTML =
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M144.3 0l224 0c26.5 0 48.1 21.8 47.1 48.2-.2 5.3-.4 10.6-.7 15.8l49.6 0c26.1 0 49.1 21.6 47.1 49.8-7.5 103.7-60.5 160.7-118 190.5-15.8 8.2-31.9 14.3-47.2 18.8-20.2 28.6-41.2 43.7-57.9 51.8l0 73.1 64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0 0-73.1c-16-7.7-35.9-22-55.3-48.3-18.4-4.8-38.4-12.1-57.9-23.1-54.1-30.3-102.9-87.4-109.9-189.9-1.9-28.1 21-49.7 47.1-49.7l49.6 0c-.3-5.2-.5-10.4-.7-15.8-1-26.5 20.6-48.2 47.1-48.2zM101.5 112l-52.4 0c6.2 84.7 45.1 127.1 85.2 149.6-14.4-37.3-26.3-86-32.8-149.6zM380 256.8c40.5-23.8 77.1-66.1 83.3-144.8L411 112c-6.2 60.9-17.4 108.2-31 144.8z"/></svg>';
+highscoreBtn.innerHTML = '<i data-lucide="trophy"></i>';
 highscoreBtn.classList.add("highscore-button");
 document.body.appendChild(highscoreBtn);
 
@@ -155,7 +151,7 @@ function showHighscores() {
 
   highScoreArray.slice(0, 5).forEach((a) => {
     let li = document.createElement("li");
-    li.innerHTML = `Spelare: ${a.name}, Score: ${a.score}`;
+    li.innerHTML = `${a.name} - ${a.score} poäng`;
     highScore.appendChild(li);
   });
 }
@@ -178,7 +174,7 @@ window.addEventListener("click", (event) => {
 //FÅR DET ATT SNÖA!
 let snowButton = document.createElement("button");
 let snowing = false;
-snowButton.innerHTML = "❄";
+snowButton.innerHTML = `<i data-lucide="snowflake"></i>`;
 snowButton.classList.add("snowflake-button");
 document.body.appendChild(snowButton);
 snowButton.addEventListener("click", function () {
@@ -215,7 +211,7 @@ themeChristmasButton.addEventListener("click", () => fetchQuiz("christmas"));
 //SKAPAR MUTE-KNAPP FÖR LJUDEFFEKTER
 const mainContainer = document.querySelector(".main-container");
 const muteBtn = document.createElement("button");
-muteBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M533.6 32.5c-10.3-8.4-25.4-6.8-33.8 3.5s-6.8 25.4 3.5 33.8C557.5 113.8 592 180.8 592 256s-34.5 142.2-88.7 186.3c-10.3 8.4-11.8 23.5-3.5 33.8s23.5 11.8 33.8 3.5C598.5 426.7 640 346.2 640 256S598.5 85.2 533.6 32.5zM473.1 107c-10.3-8.4-25.4-6.8-33.8 3.5s-6.8 25.4 3.5 33.8C475.3 170.7 496 210.9 496 256s-20.7 85.3-53.2 111.8c-10.3 8.4-11.8 23.5-3.5 33.8s23.5 11.8 33.8 3.5c43.2-35.2 70.9-88.9 70.9-149s-27.7-113.8-70.9-149zm-60.5 74.5c-10.3-8.4-25.4-6.8-33.8 3.5s-6.8 25.4 3.5 33.8C393.1 227.6 400 241 400 256s-6.9 28.4-17.7 37.3c-10.3 8.4-11.8 23.5-3.5 33.8s23.5 11.8 33.8 3.5C434.1 312.9 448 286.1 448 256s-13.9-56.9-35.4-74.5zM80 352l48 0 134.1 119.2c6.4 5.7 14.6 8.8 23.1 8.8 19.2 0 34.8-15.6 34.8-34.8l0-378.4c0-19.2-15.6-34.8-34.8-34.8-8.5 0-16.7 3.1-23.1 8.8L128 160 80 160c-26.5 0-48 21.5-48 48l0 96c0 26.5 21.5 48 48 48z"/></svg>`;
+muteBtn.innerHTML = `<i data-lucide="volume-2"></i>`;
 muteBtn.classList.add("mute-button");
 mainContainer.appendChild(muteBtn);
 //DENNA FUNKTION IMPORTERAS OCH KÖRS I sound-effects.js
@@ -376,9 +372,16 @@ function displayQuiz(themes) {
   }
   //TAR DIG TILLBAKA TILL TEMAVAL-CONTAINERN
   let backToMainBtn = document.createElement("button");
-  backToMainBtn.innerHTML = `&#8617`;
+  backToMainBtn.innerHTML = '<i data-lucide="arrow-left-to-line"></i>';
   backToMainBtn.classList.add("back-to-main-button");
   quizView.appendChild(backToMainBtn);
+  // If lucide is loaded, replace the newly added icon so it appears immediately
+  if (
+    typeof lucide !== "undefined" &&
+    typeof lucide.createIcons === "function"
+  ) {
+    lucide.createIcons();
+  }
 
   backToMainBtn.addEventListener("click", function () {
     stop();
@@ -457,3 +460,8 @@ restartBtn.addEventListener("click", function () {
   highscoreBtn.style.display = "flex";
   playerPoints = 0;
 });
+
+// If lucide is loaded, replace the newly added icon
+if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
+  lucide.createIcons();
+}

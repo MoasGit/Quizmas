@@ -608,6 +608,10 @@ body.snow-active .snowflake {
   transform: scale(1.1);
 }
 
+#player-score{
+  margin-bottom: 1rem;
+}
+
 .highscore-button {
   position: absolute;
   z-index: 200;
@@ -638,7 +642,7 @@ body.snow-active .snowflake {
   list-style-position: inside;
   padding: 1rem;
   margin: 1rem auto;
-  width: 300px;
+  width: 850px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

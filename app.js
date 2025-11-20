@@ -127,6 +127,12 @@ async function fetchQuiz(themeChoice) {
    creditsModal.style.display = "none";
  });
 
+ window.addEventListener("click", (event) => {
+  if (event.target === creditsModal) {
+    creditsModal.style.display = "none";
+  }
+});
+
 /////HIGHSCORE MODAL SOM VISAR TOPP 5 SPELARE
 const highscoreBtn = document.createElement("button");
 highscoreBtn.innerHTML =

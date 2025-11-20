@@ -322,19 +322,6 @@ span.incorrect {
   animation: none;
 }
 
-/*.next-question-button::before {
-  content: "Temporary :)";
-  position: absolute;
-  top: 0px;
-  left: -18px;
-  font-size: 10px;
-  color: black;
-  background-color: red;
-  border-radius: 10px;
-  padding: 2px 5px;
-  transform: rotate(-24deg);
-}*/
-
 .answer-button {
   width: 50%;
   height: 50%;
@@ -684,6 +671,10 @@ body.snow-active .snowflake {
   transition: all 0.2s ease-in-out;
   justify-content: center;
   align-items: center;
+}
+
+.credits-button:hover {
+  transform: scale(1.1);
 }
 
 .creditsModal {

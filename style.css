@@ -61,6 +61,18 @@ h6 {
   width: 300px;
 }
 
+.version-container {
+  color: #fbdd8d;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+}
+
+.logo-container {
+  position: relative;
+}
+
 .header {
   font-family: "Mountains of Christmas", serif;
   font-weight: 400;
@@ -163,11 +175,11 @@ h6 {
   color: #cfbd8b;
   visibility: hidden;
   text-align: center;
-  margin-top: 10px; 
+  margin-top: 10px;
 }
 
 #player-list span:hover {
- cursor: pointer;
+  cursor: pointer;
 }
 
 span.correct {
@@ -767,20 +779,12 @@ body.snow-active .snowflake {
   text-align: center;
 }
 
-.version-container {
-  color: #fbdd8d;
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  font-size: 30px;
-}
-
 .time-up-message {
-    color: #ff4444;
-    font-size: 2rem;
-    text-align: center;
-    margin: 20px 0;
-    font-weight: bold;
+  color: #ff4444;
+  font-size: 2rem;
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
 }
 
 @media (max-width: 992px) {

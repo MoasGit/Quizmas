@@ -676,6 +676,25 @@ body.snow-active .snowflake {
   align-items: center;
 }
 
+.big-highscore-button {
+  position: absolute;
+  z-index: 200;
+  bottom: 30px;
+  right: 150px;
+  border-radius: 100%;
+  border: none;
+  background: #2f2f2f;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  color: #fff;
+  display: none;
+  font-size: 50px;
+  transition: all 0.2s ease-in-out;
+  justify-content: center;
+  align-items: center;
+}
+
 .clearplayers-button {
  position: absolute;
   z-index: 200;
@@ -698,6 +717,11 @@ body.snow-active .snowflake {
 
 .highscore-button svg {
   width: 25px;
+}
+
+.big-highscore-button svg {
+  width: 50px;
+  height: 50px;
 }
 
 #high-score-view {
@@ -733,6 +757,10 @@ body.snow-active .snowflake {
 }
 
 .highscore-button:hover {
+  transform: scale(1.1);
+}
+
+.big-highscore-button:hover {
   transform: scale(1.1);
 }
 

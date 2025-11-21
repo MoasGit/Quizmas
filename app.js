@@ -90,14 +90,9 @@ nameInputBtn.addEventListener("click", function (e) {
   nameView.classList.remove("active");
   themeSelectView.classList.add("active");
   creditsBtn.style.display = "none";
-  nameDisplay.innerHTML = `Välkommen ${playerName}!`;
-  // Render Lucide icons after creating elements
-  if (
-    typeof lucide !== "undefined" &&
-    typeof lucide.createIcons === "function"
-  ) {
-    lucide.createIcons();
-  }
+  clearPlayersBtn.style.display = "none";
+  nameDisplay.textContent = `Välkommen ${playerName}!`;
+  
 });
 
 ///KNAPP FÖR ATT BYTA ANVÄNDARE
@@ -106,6 +101,7 @@ switchUserBtn.addEventListener("click", function () {
   nameView.classList.add("active");
   nameInputField.value = "";
   creditsBtn.style.display = "flex";
+  clearPlayersBtn.style.display = "flex"
 });
 
 ///LADDAR IN DATAN FRÅN JSON-FILEN
@@ -154,6 +150,11 @@ highscoreBtn.innerHTML = '<i data-lucide="trophy"></i>';
 highscoreBtn.classList.add("highscore-button");
 document.body.appendChild(highscoreBtn);
 
+const bigHighscoreBtn = document.createElement("button");
+bigHighscoreBtn.innerHTML = '<i data-lucide="trophy"></i>';
+bigHighscoreBtn.classList.add("big-highscore-button");
+document.body.appendChild(bigHighscoreBtn);
+
 const modal = document.getElementById("highscore-modal");
 const closeBtn = document.querySelector(".close-btn");
 const highscoreList = document.getElementById("high-score");
@@ -186,6 +187,21 @@ function showHighscores() {
 }
 
 highscoreBtn.addEventListener("click", function () {
+  showHighscores();
+  modal.style.display = "flex";
+});
+
+closeBtn.addEventListener("click", function () {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+bigHighscoreBtn.addEventListener("click", function () {
   showHighscores();
   modal.style.display = "flex";
 });
@@ -250,7 +266,9 @@ setupMuteButton(muteBtn);
 function displayQuiz(themes) {
   let recentScores = JSON.parse(localStorage.getItem("playerScoreHistory"));
   highscoreBtn.style.display = "none";
+  bigHighscoreBtn.style.display = "none"
   creditsBtn.style.display = "none";
+  clearPlayersBtn.style.display = "none";
 
   playersArray = Array.isArray(recentScores) ? recentScores : [];
 
@@ -331,8 +349,10 @@ function displayQuiz(themes) {
         }
       }
         
+      // VISAR RESULTAT EFTER VARJE OMGÅNG MED POÄNG OCH RÄTTA SVAR
       function showCorrectAnswers(){
         totalScoreDisplay.textContent = "";
+        bigHighscoreBtn.style.display = "flex";
         for(let i = 0; i < themes.length; i++){
           
         let options = themes[i].options;
@@ -535,6 +555,7 @@ restartBtn.addEventListener("click", function () {
   resultsView.classList.remove("active");
   themeSelectView.classList.add("active");
   highscoreBtn.style.display = "flex";
+  bigHighscoreBtn.style.display = "none"
   playerPoints = 0;
   chosenAnswers = [];
 });

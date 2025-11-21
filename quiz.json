@@ -25,7 +25,7 @@
         "question": "Vilken musikgenre populäriserade Bob Marley?",
         "options": ["Jazz", "Reggae", "Soul", "Blues"],
         "answer": 1,
-        "image": "./images/question-images/bob-marley.webp"
+        "image": "./images/question-images/bob-marley.jpg"
       },
       {
         "id": 4,
@@ -118,7 +118,7 @@
           "Christina Aguilera"
         ],
         "answer": 2,
-        "image": "./images/question-images/titanic.webp"
+        "image": "./images/question-images/titanic.jpg"
       },
       {
         "id": 4,
@@ -142,7 +142,7 @@
           "The Chronicles of Narnia"
         ],
         "answer": 1,
-        "image": "./images/question-images/gollum.jpg"
+        "image": "./images/question-images/gollum.png"
       },
       {
         "id": 6,
@@ -245,7 +245,7 @@
         "question": "Vad heter det hav som ligger mellan Storbritannien och Norge?",
         "options": ["Östersjön", "Nordsjön", "Atlanten", "Stilla havet"],
         "answer": 1,
-        "image": "./images/question-images/havMellanLand.avif"
+        "image": "./images/question-images/havMellanLand.jpg"
       },
       {
         "id": 9,
@@ -287,7 +287,7 @@
         "question": "Vem gör rösten till konduktören i 'The Polar Express' (2004)?",
         "options": ["Tom Hanks", "Robert Deniro", "Jack Black", "Tim Allen"],
         "answer": 0,
-        "image": "./images/question-images/polar-express.webp"
+        "image": "./images/question-images/polar-express.jpg"
       },
       {
         "id": 4,

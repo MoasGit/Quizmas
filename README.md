@@ -13,10 +13,10 @@ Om inget namn skrivs in får man automatiskt namnet **"Tomtenisse"**. Namnet spa
 
 På startsidan får man också valet att acceptera eller neka cookies, som används för att samla in data till Google Analytics.
 
-Här finns också knappar:
+Här finns också knappar, varav vissa följer med i hela flödet:
 
 - **Credits-knapp** (visas bara på startsidan)
-- **Mute-knapp** (följer med i hela flödet)
+- **Mute-knapp**
 - **Snöflinge-toggle**
 - **Highscore-knapp** (sparas via LocalStorage)
 

@@ -151,10 +151,9 @@ h6 {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   height: 100px;
-}
-
-.answer-check-text {
-  top: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #name-input-button:hover {
@@ -205,6 +204,9 @@ h6 {
   font-size: 24px;
   color: #fff;
   transition: all 0.2s ease-in-out;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 #player-list span:hover {
   cursor: pointer;
@@ -473,6 +475,7 @@ span.incorrect {
   position: absolute;
   font-size: 38px;
   z-index: 3;
+  top: 17vh;
 }
 
 .answer-check-text {
@@ -481,9 +484,9 @@ span.incorrect {
 
 .question-image-container {
   position: absolute;
-  width: 200px;
-  height: 200px;
-  top: 280px;
+  width: min(250px, 30vw);
+  height: min(250px, 30vw);
+  top: 25vh;
   z-index: 3;
   border-radius: 50%;
   border: 10px solid var(--background-red);
@@ -577,6 +580,10 @@ span.incorrect {
   background-color: #ff4444;
 }
 
+[data-lucide] {
+  display: inline;
+}
+
 .snowflake-button {
   position: absolute;
   z-index: 1000;
@@ -646,7 +653,7 @@ body.snow-active .snowflake {
   transform: scale(1.1);
 }
 
-#player-score{
+#player-score {
   margin-bottom: 1rem;
 }
 
@@ -895,11 +902,10 @@ body.snow-active .snowflake {
   transform: scale(1.1);
 }
 .progress-counter {
-  position: fixed;
-  top: 2px;
-  left: 50%;
-  
-  transform: translateX(-50%);
+  position: absolute;
+  /* top: 2px; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   background-color: var(--background-black);
   color: #fff;
   padding: 4px 7px;
@@ -908,6 +914,8 @@ body.snow-active .snowflake {
   z-index: 100;
   font-weight: 500;
   pointer-events: none;
+  font-size: 14px;
+  margin-top: -80px;
 }
 body {
   overflow-x: hidden;
@@ -956,6 +964,16 @@ body {
     right: 20px;
   }
 
+  #silktide-cookie-icon {
+    top: 20px;
+    right: 20px !important;
+  }
+
+  .credits-button {
+    right: 80px;
+    top: 20px;
+  }
+
   .copyright-container {
     bottom: 100px;
   }
@@ -973,20 +991,14 @@ body {
   }
 
   .timer-text {
-    font-size: 50px;
+    font-size: 50px !important;
   }
 
   .question-image-container {
-    top: 280px;
   }
 
   .answer-check-text {
-    top: 190px;
   }
-  .progress-counter {
-    font-size: 0.9rem;
-  }
-  
 }
 
 @media (max-width: 768px) {
@@ -1012,11 +1024,138 @@ body {
   #theme-movies,
   #theme-geography,
   #theme-christmas {
-    font-size: 22px;
-  }
-
-  #name-display {
     font-size: 18px;
   }
 
+  .answer-check-text {
+    font-size: 20px;
+  }
+
+  #name-display {
+    font-size: 14px;
+  }
+
+  .question-text {
+    font-size: 20px;
+    width: 90%;
+  }
+
+  .question-image-container {
+    width: min(200px, 30vw) !important;
+    height: min(200px, 30vw) !important;
+    top: 29vh !important;
+  }
+
+  .choose-theme-text {
+    font-size: 20px;
+  }
+
+  #player-choice {
+    width: 100%;
+  }
+
+  .header {
+    font-size: 48px;
+  }
+
+  .logo {
+    height: 250px;
+    width: 250px;
+  }
+
+  #name-input-button,
+  #name-input-field {
+    height: 80px;
+  }
+
+  #player-list span {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  #player-list {
+    gap: 10px;
+  }
+
+  .copyright-container {
+    bottom: 90px;
+    font-size: 12px;
+  }
+
+  #name-input-field {
+    padding: 10px;
+  }
+
+  #player-choice h3 {
+    font-size: 14px;
+  }
+
+  .quizTimer {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .timer-text {
+    font-size: 30px !important;
+  }
+
+  .next-question-button {
+    top: 60vh;
+  }
+
+  .progress-counter {
+    font-size: 10px;
+  }
+
+  .question-text {
+    padding: 10px;
+  }
+  .back-to-main-button {
+    top: 20px;
+    left: 20px;
+  }
+
+  .answer-button:nth-of-type(2)::before {
+    font-size: 140px;
+  }
+  .answer-button:nth-of-type(3)::before {
+    font-size: 140px;
+  }
+  .answer-button:nth-of-type(4)::before {
+    font-size: 140px;
+  }
+
+  .answer-button:nth-of-type(5)::before {
+    font-size: 140px;
+  }
+
+  .answer-button {
+    font-size: 16px;
+  }
+
+  .question-image-container {
+    width: min(200px, 30vw);
+    height: min(200px, 30vw);
+    top: 29vh;
+  }
+
+  .version-container {
+    font-size: 14px;
+  }
+
+  .modal-content {
+    max-width: 90%;
+  }
+
+  .highscore-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-height: 1024px) {
+  .question-image-container {
+    width: min(200px, 40vw);
+    height: min(200px, 40vw);
+    top: 24vh;
+  }
 }

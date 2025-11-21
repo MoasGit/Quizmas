@@ -67,12 +67,19 @@ nameInputField.addEventListener("focus", () => {
     playerChoice.classList.add("active");
     playerNames.forEach((name) => {
       let span = document.createElement("span");
-      span.textContent = `${name.name}`;
+      span.innerHTML = `<i data-lucide="user-round"></i>${name.name}`;
       playerList.appendChild(span);
       span.addEventListener("click", () => {
         nameInputField.value = span.textContent;
       });
     });
+    // Render Lucide icons after creating elements
+    if (
+      typeof lucide !== "undefined" &&
+      typeof lucide.createIcons === "function"
+    ) {
+      lucide.createIcons();
+    }
   }
 });
 
@@ -290,6 +297,11 @@ function displayQuiz(themes) {
   questionText.classList.add("question-text");
   quizView.appendChild(questionText);
 
+  let progressCounter = document.createElement("div");
+  progressCounter.classList.add("progress-counter");
+  progressCounter.textContent = `${questionIndex + 1} / ${arrLength}`;
+  quizView.appendChild(progressCounter);
+
   let answerCheck = document.createElement("p");
   answerCheck.innerHTML = ``;
   answerCheck.classList.add("answer-check-text");
@@ -405,7 +417,6 @@ function displayQuiz(themes) {
 
   ////LOOP SOM SKAPAR EN KNAPP FÖR VARJE SVARSALTERNATIV
   options.forEach((option, idx) => {
-    
     let btn = document.createElement("button");
     btn.innerHTML = `${option}`;
     btn.classList.add("answer-button");
@@ -504,10 +515,7 @@ function displayQuiz(themes) {
   quizTimer.appendChild(timerBar);
 
   quizView.appendChild(quizTimer);
-  let progressCounter = document.createElement("div");
-  progressCounter.classList.add("progress-counter");
-  progressCounter.textContent = `Fråga ${questionIndex + 1} / ${arrLength}`;
-  quizView.appendChild(progressCounter);
+
   //Initierar timern och sätter villkor för när tiden tar slut
   init(quizTimer, function () {
     timeUpMessage.style.display = "block";

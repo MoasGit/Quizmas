@@ -39,8 +39,9 @@ const nextQuestionBtn = document.getElementById("next-question-button");
 const playerScore = document.getElementById("player-score");
 const totalScore = document.getElementById("total-score");
 const highScore = document.getElementById("high-score");
+const highScoreView = document.getElementById("high-score-view")
 
-const chosenAnswers = [];
+let chosenAnswers = [];
 
 let playerName;
 
@@ -60,6 +61,7 @@ nameInputField.addEventListener("focus", () => {
   playerList.innerHTML = "";
   let playerNames =
     JSON.parse(localStorage.getItem("playerScoreHistory")) || [];
+    console.log(playerNames)
   if (playerNames.length > 0) {
     //playerChoice.style.visibility = "visible";
     playerChoice.classList.add("active");
@@ -82,6 +84,7 @@ nameInputBtn.addEventListener("click", function (e) {
   themeSelectView.classList.add("active");
   creditsBtn.style.display = "none";
   nameDisplay.textContent = `Välkommen ${playerName}!`;
+  
 });
 
 ///KNAPP FÖR ATT BYTA ANVÄNDARE
@@ -141,6 +144,17 @@ document.body.appendChild(highscoreBtn);
 const modal = document.getElementById("highscore-modal");
 const closeBtn = document.querySelector(".close-btn");
 const highscoreList = document.getElementById("high-score");
+
+const clearPlayersBtn = document.createElement("button");
+clearPlayersBtn.textContent = "Clear Players";
+clearPlayersBtn.classList.add("clearplayers-button");
+document.body.appendChild(clearPlayersBtn);
+
+clearPlayersBtn.addEventListener("click", ()=>{
+  
+    localStorage.removeItem("playerScoreHistory")
+  
+})
 
 function showHighscores() {
   let playersArray =
@@ -289,27 +303,26 @@ function displayQuiz(themes) {
       }
 
       let found = false;
-      /*
+        
+
+      
       for (let i = 0; i < playersArray.length; i++) {
         if (playersArray[i].name == playerName) {
-          totalScoreDisplay.innerHTML = `Spelare: ${playerName}, Totala quizpoäng: ${playersArray[i].score}`;
           found = true;
           break;
         }
       }
-      if (found == false) {
-        totalScoreDisplay.innerHTML = `Ny spelare: ${playerName}, Totala quizpoäng: ${playerTotalScore}`;
-      }
-        */
-      function showCorrectAnswers(){
         
+      function showCorrectAnswers(){
+        totalScoreDisplay.textContent = "";
         for(let i = 0; i < themes.length; i++){
+          
         let options = themes[i].options;
         let answer = themes[i].answer;
         let checkAnswer = document.createElement("span");
         
         checkAnswer.textContent = `${themes[i].options[answer]}`
-        checkAnswer.classList.add("check-answer");
+        
         checkAnswer.style.fontSize = "1.2rem";
         checkAnswer.style.color = "orange";
         checkAnswer.style.textShadow = "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black";
@@ -328,12 +341,14 @@ function displayQuiz(themes) {
         question.textContent = `${themes[i].question} - `
         question.appendChild(checkAnswer)
         question.appendChild(check)
+        
         totalScoreDisplay.appendChild(question)
+        
       }
         
       }
 
-      showCorrectAnswers();
+    showCorrectAnswers();
       
 
       questionIndex = -1;
@@ -355,6 +370,8 @@ function displayQuiz(themes) {
         highScore.appendChild(li);
       });
     }
+
+    
   });
 
   let options = themes[questionIndex].options;
@@ -370,9 +387,9 @@ function displayQuiz(themes) {
 
     ///STARTAR CHECKFUNKTIONEN OCH SKICKAR MED SVARET MAN KLICKADE PÅ
     btn.addEventListener("click", function () {
-      
-      checkAnswer(idx);
       chosenAnswers.push(idx);
+      checkAnswer(idx);
+      
 
       console.log(questionIndex);
     });
@@ -500,10 +517,12 @@ start();
 
 ///NOLLSTÄLLER QUIZZET OCH GÅR TILLBAKS TILL TEMAVAL-CONTAINERN
 restartBtn.addEventListener("click", function () {
+  
   resultsView.classList.remove("active");
   themeSelectView.classList.add("active");
   highscoreBtn.style.display = "flex";
   playerPoints = 0;
+  chosenAnswers = [];
 });
 
 // IKONHANTERING

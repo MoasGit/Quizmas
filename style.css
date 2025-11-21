@@ -168,8 +168,10 @@ h6 {
 #player-choice {
   border-radius: 10px;
   padding: 5px;
-  width: 600px;
+  width: 500px;
   height: 80px;
+
+  overflow: auto;
   color: #cfbd8b;
   visibility: hidden;
   text-align: center;
@@ -666,6 +668,27 @@ body.snow-active .snowflake {
   justify-content: center;
   align-items: center;
 }
+
+.clearplayers-button {
+ position: absolute;
+  z-index: 200;
+  bottom: 30px;
+  right: 100px;
+  border-radius: 100%;
+  border: none;
+  background: #2f2f2f;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  fill: #fff;
+  display: flex;
+  font-size: 10px;
+  color: white;
+  transition: all 0.2s ease-in-out;
+  justify-content: center;
+  align-items: center;
+}
+
 .highscore-button svg {
   width: 25px;
 }

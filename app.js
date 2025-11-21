@@ -65,12 +65,19 @@ nameInputField.addEventListener("focus", () => {
     playerChoice.classList.add("active");
     playerNames.forEach((name) => {
       let span = document.createElement("span");
-      span.textContent = `${name.name}`;
+      span.innerHTML = `<i data-lucide="user-round"></i>${name.name}`;
       playerList.appendChild(span);
       span.addEventListener("click", () => {
         nameInputField.value = span.textContent;
       });
     });
+    // Render Lucide icons after creating elements
+    if (
+      typeof lucide !== "undefined" &&
+      typeof lucide.createIcons === "function"
+    ) {
+      lucide.createIcons();
+    }
   }
 });
 
@@ -81,7 +88,14 @@ nameInputBtn.addEventListener("click", function (e) {
   nameView.classList.remove("active");
   themeSelectView.classList.add("active");
   creditsBtn.style.display = "none";
-  nameDisplay.textContent = `Välkommen ${playerName}!`;
+  nameDisplay.innerHTML = `Välkommen ${playerName}!`;
+  // Render Lucide icons after creating elements
+  if (
+    typeof lucide !== "undefined" &&
+    typeof lucide.createIcons === "function"
+  ) {
+    lucide.createIcons();
+  }
 });
 
 ///KNAPP FÖR ATT BYTA ANVÄNDARE
@@ -252,6 +266,11 @@ function displayQuiz(themes) {
   questionText.classList.add("question-text");
   quizView.appendChild(questionText);
 
+  let progressCounter = document.createElement("div");
+  progressCounter.classList.add("progress-counter");
+  progressCounter.textContent = `${questionIndex + 1} / ${arrLength}`;
+  quizView.appendChild(progressCounter);
+
   let answerCheck = document.createElement("p");
   answerCheck.innerHTML = ``;
   answerCheck.classList.add("answer-check-text");
@@ -301,40 +320,37 @@ function displayQuiz(themes) {
         totalScoreDisplay.innerHTML = `Ny spelare: ${playerName}, Totala quizpoäng: ${playerTotalScore}`;
       }
         */
-      function showCorrectAnswers(){
-        
-        for(let i = 0; i < themes.length; i++){
-        let options = themes[i].options;
-        let answer = themes[i].answer;
-        let checkAnswer = document.createElement("span");
-        
-        checkAnswer.textContent = `${themes[i].options[answer]}`
-        checkAnswer.classList.add("check-answer");
-        checkAnswer.style.fontSize = "1.2rem";
-        checkAnswer.style.color = "orange";
-        checkAnswer.style.textShadow = "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black";
-        let check = document.createElement("span");
-        if(answer == chosenAnswers[i]){
-          check.textContent = `✓`
-        }
-        else{
-          check.textContent = "×"
-        }
+      function showCorrectAnswers() {
+        for (let i = 0; i < themes.length; i++) {
+          let options = themes[i].options;
+          let answer = themes[i].answer;
+          let checkAnswer = document.createElement("span");
 
-        check.style.fontSize = "2rem";
-        check.style.marginLeft = "5px"
+          checkAnswer.textContent = `${themes[i].options[answer]}`;
+          checkAnswer.classList.add("check-answer");
+          checkAnswer.style.fontSize = "1.2rem";
+          checkAnswer.style.color = "orange";
+          checkAnswer.style.textShadow =
+            "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black";
+          let check = document.createElement("span");
+          if (answer == chosenAnswers[i]) {
+            check.textContent = `✓`;
+          } else {
+            check.textContent = "×";
+          }
 
-        let question = document.createElement("p");
-        question.textContent = `${themes[i].question} - `
-        question.appendChild(checkAnswer)
-        question.appendChild(check)
-        totalScoreDisplay.appendChild(question)
-      }
-        
+          check.style.fontSize = "2rem";
+          check.style.marginLeft = "5px";
+
+          let question = document.createElement("p");
+          question.textContent = `${themes[i].question} - `;
+          question.appendChild(checkAnswer);
+          question.appendChild(check);
+          totalScoreDisplay.appendChild(question);
+        }
       }
 
       showCorrectAnswers();
-      
 
       questionIndex = -1;
       console.log(playerTotalScore);
@@ -362,7 +378,6 @@ function displayQuiz(themes) {
 
   ////LOOP SOM SKAPAR EN KNAPP FÖR VARJE SVARSALTERNATIV
   options.forEach((option, idx) => {
-    
     let btn = document.createElement("button");
     btn.innerHTML = `${option}`;
     btn.classList.add("answer-button");
@@ -370,7 +385,6 @@ function displayQuiz(themes) {
 
     ///STARTAR CHECKFUNKTIONEN OCH SKICKAR MED SVARET MAN KLICKADE PÅ
     btn.addEventListener("click", function () {
-      
       checkAnswer(idx);
       chosenAnswers.push(idx);
 
@@ -461,10 +475,7 @@ function displayQuiz(themes) {
   quizTimer.appendChild(timerBar);
 
   quizView.appendChild(quizTimer);
-  let progressCounter = document.createElement("div");
-  progressCounter.classList.add("progress-counter");
-  progressCounter.textContent = `Fråga ${questionIndex + 1} / ${arrLength}`;
-  quizView.appendChild(progressCounter);
+
   //Initierar timern och sätter villkor för när tiden tar slut
   init(quizTimer, function () {
     timeUpMessage.style.display = "block";

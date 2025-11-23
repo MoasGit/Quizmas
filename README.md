@@ -31,7 +31,7 @@ När ett tema valts:
 - En timer startar för varje fråga
 - Timern stoppas när man svarar
 - En _Nästa fråga_-knapp visas
-- När alla frågor är klara visas resultatet
+- När alla frågor är klara visas resultatet och de rätta svaren
 - Man kan då välja att starta ett nytt quiz
 
 ---

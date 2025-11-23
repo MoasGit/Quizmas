@@ -73,7 +73,7 @@ nameInputField.addEventListener("focus", () => {
         nameInputField.value = span.textContent;
       });
     });
-    // Render Lucide icons after creating elements
+    // Render Lucide icons efter att man skapat element
     if (
       typeof lucide !== "undefined" &&
       typeof lucide.createIcons === "function"
@@ -167,6 +167,7 @@ clearPlayersBtn.addEventListener("click", () => {
   localStorage.removeItem("playerScoreHistory");
 });
 
+// HÄMTAR SPELARNA VIA LOCALSTORAGE, SORTERAR EFTER POÄNG OCH SPARAR TOP 5 I NY ARRAY
 function showHighscores() {
   let playersArray =
     JSON.parse(localStorage.getItem("playerScoreHistory")) || [];
@@ -216,6 +217,7 @@ function showHighscores() {
   }
 }
 
+// EVENTLYSSNARE FÖR STORA OCH LILLA POKALKNAPPEN
 highscoreBtn.addEventListener("click", function () {
   showHighscores();
   modal.style.display = "flex";

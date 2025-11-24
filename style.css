@@ -101,7 +101,7 @@ body {
   height: 100vh;
   background-color: var(--background-red);
   z-index: 1;
-  background-image: url(/images/landscape-bg.jpg);
+  background-image: url(./images/landscape-bg.jpg);
   position: relative;
   background-size: cover;
 }
@@ -173,6 +173,8 @@ body {
 
 #name-input-button:hover {
   transform: scale(1.1);
+  background-color: #fadb90;
+  color: var(--background-black);
 }
 
 #name-input-field::placeholder {
@@ -222,10 +224,12 @@ body {
   justify-content: center;
   align-items: center;
   display: flex;
+  cursor: pointer;
 }
 #player-list span:hover {
-  cursor: pointer;
   transform: scale(1.1);
+  background-color: #fadb90;
+  color: var(--background-black);
 }
 
 form.name {
@@ -238,16 +242,18 @@ form.name {
 
 span.correct {
   color: #fff;
-  background-color: green;
+  background-color: var(--background-red);
   padding: 10px 20px;
   border-radius: 30px;
+  border: 2px solid #58d68e;
 }
 
 span.incorrect {
   color: #fff;
-  background-color: red;
+  background-color: var(--background-red);
   padding: 10px 20px;
   border-radius: 30px;
+  border: 2px solid #fd648d;
 }
 
 .hidden {
@@ -385,7 +391,8 @@ span.incorrect {
 }
 
 .next-question-button:hover {
-  animation: none;
+  background-color: #fadb90;
+  color: var(--background-black);
 }
 
 .answer-button {
@@ -539,6 +546,8 @@ span.incorrect {
 }
 .back-to-main-button:hover {
   transform: scale(1.1);
+  background-color: #fadb90;
+  color: var(--background-black);
 }
 
 .quizTimer {
@@ -583,7 +592,7 @@ span.incorrect {
 }
 
 .quizTimer.warning .timer-text {
-  color: #ff4444;
+  color: #fd658d;
   font-size: 3.7rem;
 }
 
@@ -592,7 +601,7 @@ span.incorrect {
 }
 
 .quizTimer.warning .timer-bar-fill {
-  background-color: #ff4444;
+  background-color: #fd658d;
 }
 
 [data-lucide] {
@@ -620,7 +629,9 @@ span.incorrect {
 }
 .snowflake-button:hover {
   transform: scale(1.1);
-  color: rgb(173, 199, 255);
+
+  background-color: #fadb90;
+  color: var(--background-black);
 }
 
 .snowflake {
@@ -666,6 +677,8 @@ body.snow-active .snowflake {
 
 .mute-button:hover {
   transform: scale(1.1);
+  background-color: #fadb90;
+  color: var(--background-black);
 }
 
 #player-score {
@@ -722,10 +735,13 @@ body.snow-active .snowflake {
   font-size: 30px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  animation: pulse 1.5s ease-in-out infinite;
 }
 
 #restart-button:hover {
   transform: scale(1.1);
+  background-color: #fadb90;
+  color: var(--background-black);
 }
 
 .clearplayers-button {
@@ -795,10 +811,14 @@ body.snow-active .snowflake {
 
 .highscore-button:hover {
   transform: scale(1.1);
+  background-color: #fadb90;
+  color: var(--background-black);
 }
 
 .big-highscore-button:hover {
   transform: scale(1.1);
+  background-color: #fadb90;
+  color: var(--background-black);
 }
 
 .credits-button {
@@ -821,8 +841,28 @@ body.snow-active .snowflake {
   align-items: center;
 }
 
+.modal-content h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.modal-content h4 {
+  font-size: 24px;
+  margin: 18px 0;
+}
+
+.modal-content strong {
+  font-weight: bolder;
+}
+
+.credit-text a {
+  color: #fff;
+}
+
 .credits-button:hover {
   transform: scale(1.1);
+  background-color: #fadb90;
+  color: var(--background-black);
 }
 
 .creditsModal {
@@ -872,20 +912,36 @@ body.snow-active .snowflake {
 .trophy-gold {
   color: #ffd700;
   filter: drop-shadow(0 0 8px #ffd700);
+  width: 60px;
+  height: 60px;
 }
 
 .trophy-silver {
   color: #c0c0c0;
   filter: drop-shadow(0 0 6px #c0c0c0);
+  width: 50px;
+  height: 50px;
 }
 
 .trophy-bronze {
   color: #cd7f32;
   filter: drop-shadow(0 0 6px #cd7f32);
+  width: 40px;
+  height: 40px;
 }
 
 .trophy-other {
   color: rgba(255, 255, 255, 0.4);
+}
+
+#high-score li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trophy-container {
+  margin-right: 10px;
 }
 
 .close-btn {
@@ -926,6 +982,8 @@ body.snow-active .snowflake {
 
 #switch-user-button:hover {
   transform: scale(1.1);
+  background-color: #fadb90;
+  color: var(--background-black);
 }
 
 .copyright-container {
@@ -959,7 +1017,13 @@ body.snow-active .snowflake {
 
 #silktide-cookie-icon:hover {
   transform: scale(1.1);
+  background-color: #fadb90 !important;
 }
+
+#silktide-cookie-icon:hover svg {
+  fill: var(--background-black) !important;
+}
+
 .progress-counter {
   position: absolute;
   /* top: 2px; */
@@ -984,6 +1048,23 @@ body {
 .main-container {
   overflow-x: hidden;
 }
+
+#clear-players-button {
+  background-color: var(--background-black);
+  color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#clear-players-button:hover {
+  transform: scale(1.1);
+  background-color: #fadb90;
+  color: var(--background-black);
+}
+
 @media (max-width: 1180px) {
   #theme-music,
   #theme-movies,

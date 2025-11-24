@@ -3,6 +3,7 @@ const incorrectSound = new Audio("./audio/incorrect.wav");
 const timeRunningOutSound = new Audio("./audio/time-running-out.wav");
 const jingleSound = new Audio("./audio/jingle.wav");
 const timeIsUpSound = new Audio("./audio/time-is-up.mp3");
+const quizFinished = new Audio("./audio/quiz-finished.mp3");
 
 //LJUDUPPSPELNING OCH MUTING
 let muted = false;
@@ -42,4 +43,5 @@ export {
   timeRunningOutSound,
   jingleSound,
   timeIsUpSound,
+  quizFinished,
 };

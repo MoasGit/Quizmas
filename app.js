@@ -4,6 +4,7 @@ import {
   incorrectSound,
   jingleSound,
   timeIsUpSound,
+  quizFinished,
   setupMuteButton,
   playSound,
 } from "./js/sound-effects.js";
@@ -41,6 +42,8 @@ const totalScore = document.getElementById("total-score");
 const highScore = document.getElementById("high-score");
 const highScoreView = document.getElementById("high-score-view");
 
+const clearPlayerDataBtn = document.getElementById("clear-players-button");
+
 let chosenAnswers = [];
 
 let playerName;
@@ -61,7 +64,7 @@ nameInputField.addEventListener("focus", () => {
   playerList.innerHTML = "";
   let playerNames =
     JSON.parse(localStorage.getItem("playerScoreHistory")) || [];
-  console.log(playerNames);
+
   if (playerNames.length > 0) {
     //playerChoice.style.visibility = "visible";
     playerChoice.classList.add("active");
@@ -90,7 +93,7 @@ nameInputBtn.addEventListener("click", function (e) {
   nameView.classList.remove("active");
   themeSelectView.classList.add("active");
   creditsBtn.style.display = "none";
-  clearPlayersBtn.style.display = "none";
+
   nameDisplay.textContent = `Välkommen ${playerName}!`;
 });
 
@@ -100,7 +103,6 @@ switchUserBtn.addEventListener("click", function () {
   nameView.classList.add("active");
   nameInputField.value = "";
   creditsBtn.style.display = "flex";
-  clearPlayersBtn.style.display = "flex";
 });
 
 ///LADDAR IN DATAN FRÅN JSON-FILEN
@@ -158,12 +160,7 @@ const modal = document.getElementById("highscore-modal");
 const closeBtn = document.querySelector(".close-btn");
 const highscoreList = document.getElementById("high-score");
 
-const clearPlayersBtn = document.createElement("button");
-clearPlayersBtn.textContent = "Clear Players";
-clearPlayersBtn.classList.add("clearplayers-button");
-document.body.appendChild(clearPlayersBtn);
-
-clearPlayersBtn.addEventListener("click", () => {
+clearPlayerDataBtn.addEventListener("click", () => {
   localStorage.removeItem("playerScoreHistory");
 });
 
@@ -298,7 +295,6 @@ function displayQuiz(themes) {
   highscoreBtn.style.display = "none";
   bigHighscoreBtn.style.display = "none";
   creditsBtn.style.display = "none";
-  clearPlayersBtn.style.display = "none";
 
   playersArray = Array.isArray(recentScores) ? recentScores : [];
 
@@ -308,7 +304,6 @@ function displayQuiz(themes) {
   quizView.classList.add("active");
   questionIndex++;
   quizView.innerHTML = "";
-  console.log("nu visas fråga nummer:" + questionIndex);
 
   //// SKAPAR BILDCONTAINER OCH SÄTTER BAKGRUNDSBILD FRÅN JSON
 
@@ -357,6 +352,7 @@ function displayQuiz(themes) {
       resultsView.classList.add("active");
       playerScore.innerHTML = `${playerName}, Poäng: ${playerPoints} / ${themes.length}`;
       playerTotalScore = playerPoints;
+      playSound(quizFinished);
 
       let thisPlayer = {
         name: playerName,
@@ -414,7 +410,6 @@ function displayQuiz(themes) {
       showCorrectAnswers();
 
       questionIndex = -1;
-      console.log(playerTotalScore);
 
       if (found == false) {
         playersArray.push(thisPlayer);
@@ -448,8 +443,6 @@ function displayQuiz(themes) {
     btn.addEventListener("click", function () {
       chosenAnswers.push(idx);
       checkAnswer(idx);
-
-      console.log(questionIndex);
     });
   });
 

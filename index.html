@@ -23,14 +23,17 @@
     })(window, document, 'script', 'dataLayer', 'GTM-P63SH3X2');
   </script>
   <!-- End Google Tag Manager -->
-   <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GTD2BXM6NY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-GTD2BXM6NY');
-</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GTD2BXM6NY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-GTD2BXM6NY');
+  </script>
   <script type="module" src="app.js" defer></script>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,99 +43,100 @@
     rel="stylesheet" />
   <script src="https://kit.fontawesome.com/2090fae52f.js" crossorigin="anonymous"></script>
   <!-- Production version -->
-<script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" id="silktide-consent-manager-css" href="./cookie-banner/silktide-consent-manager.css">
-<script src="./cookie-banner/silktide-consent-manager.js"></script>
+  <script src="./cookie-banner/silktide-consent-manager.js"></script>
 
-<script>
-silktideCookieBannerManager.updateCookieBannerConfig({
-  background: {
-    showBackground: true
-  },
-  cookieIcon: {
-    position: "bottomRight"
-  },
-  cookieTypes: [
-    {
-      id: "necessary",
-      name: "Necessary",
-      description: "<p>These cookies are necessary for the website to function properly and cannot be switched off. They help with things like logging in and setting your privacy preferences.</p>",
-      required: true,
-      onAccept: function() {
-        console.log('Add logic for the required Necessary here');
-      }
-    },
-    {
-      id: "analytics",
-      name: "Analytics",
-      description: "<p>These cookies help us improve the site by tracking which pages are most popular and how visitors move around the site.</p>",
-      defaultValue: true,
-      onAccept: function() {
-        gtag('consent', 'update', {
-          analytics_storage: 'granted',
-        });
-        dataLayer.push({
-          'event': 'consent_accepted_analytics',
-        });
+  <script>
+    silktideCookieBannerManager.updateCookieBannerConfig({
+      background: {
+        showBackground: true
       },
-      onReject: function() {
-        gtag('consent', 'update', {
-          analytics_storage: 'denied',
-        });
-      }
-    },
-    {
-      id: "advertising",
-      name: "Advertising",
-      description: "<p>These cookies provide extra features and personalization to improve your experience. They may be set by us or by partners whose services we use.</p>",
-      onAccept: function() {
-        gtag('consent', 'update', {
-          ad_storage: 'granted',
-          ad_user_data: 'granted',
-          ad_personalization: 'granted',
-        });
-        dataLayer.push({
-          'event': 'consent_accepted_advertising',
-        });
+      cookieIcon: {
+        position: "bottomRight"
       },
-      onReject: function() {
-        gtag('consent', 'update', {
-          ad_storage: 'denied',
-          ad_user_data: 'denied',
-          ad_personalization: 'denied',
-        });
+      cookieTypes: [{
+          id: "necessary",
+          name: "Necessary",
+          description: "<p>These cookies are necessary for the website to function properly and cannot be switched off. They help with things like logging in and setting your privacy preferences.</p>",
+          required: true,
+          onAccept: function () {
+            console.log('Add logic for the required Necessary here');
+          }
+        },
+        {
+          id: "analytics",
+          name: "Analytics",
+          description: "<p>These cookies help us improve the site by tracking which pages are most popular and how visitors move around the site.</p>",
+          defaultValue: true,
+          onAccept: function () {
+            gtag('consent', 'update', {
+              analytics_storage: 'granted',
+            });
+            dataLayer.push({
+              'event': 'consent_accepted_analytics',
+            });
+          },
+          onReject: function () {
+            gtag('consent', 'update', {
+              analytics_storage: 'denied',
+            });
+          }
+        },
+        {
+          id: "advertising",
+          name: "Advertising",
+          description: "<p>These cookies provide extra features and personalization to improve your experience. They may be set by us or by partners whose services we use.</p>",
+          onAccept: function () {
+            gtag('consent', 'update', {
+              ad_storage: 'granted',
+              ad_user_data: 'granted',
+              ad_personalization: 'granted',
+            });
+            dataLayer.push({
+              'event': 'consent_accepted_advertising',
+            });
+          },
+          onReject: function () {
+            gtag('consent', 'update', {
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+            });
+          }
+        }
+      ],
+      text: {
+        banner: {
+          description: "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic. <a href=\"https://your-website.com/cookie-policy\" target=\"_blank\">Cookie Policy.</a></p>",
+          acceptAllButtonText: "Accept all",
+          acceptAllButtonAccessibleLabel: "Accept all cookies",
+          rejectNonEssentialButtonText: "Reject non-essential",
+          rejectNonEssentialButtonAccessibleLabel: "Reject non-essential",
+          preferencesButtonText: "Preferences",
+          preferencesButtonAccessibleLabel: "Toggle preferences"
+        },
+        preferences: {
+          title: "Customize your cookie preferences",
+          description: "<p>We respect your right to privacy. You can choose not to allow some types of cookies. Your cookie preferences will apply across our website.</p>",
+          creditLinkText: "Get this banner for free",
+          creditLinkAccessibleLabel: "Get this banner for free"
+        }
+      },
+      position: {
+        banner: "bottomRight"
       }
-    }
-  ],
-  text: {
-    banner: {
-      description: "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic. <a href=\"https://your-website.com/cookie-policy\" target=\"_blank\">Cookie Policy.</a></p>",
-      acceptAllButtonText: "Accept all",
-      acceptAllButtonAccessibleLabel: "Accept all cookies",
-      rejectNonEssentialButtonText: "Reject non-essential",
-      rejectNonEssentialButtonAccessibleLabel: "Reject non-essential",
-      preferencesButtonText: "Preferences",
-      preferencesButtonAccessibleLabel: "Toggle preferences"
-    },
-    preferences: {
-      title: "Customize your cookie preferences",
-      description: "<p>We respect your right to privacy. You can choose not to allow some types of cookies. Your cookie preferences will apply across our website.</p>",
-      creditLinkText: "Get this banner for free",
-      creditLinkAccessibleLabel: "Get this banner for free"
-    }
-  },
-  position: {
-    banner: "bottomRight"
-  }
-});
-</script>
+    });
+  </script>
   <link rel="icon" href="quizmas-logo.ico" />
   <title>QUIZMAS</title>
 
   <!--SEO-optimering-->
-  <meta name="description" content=" the best quiz to test your knowledge and IQ in music, geography, movies and christmas in a fast and fun way. Test your knowledge and challenge your friends!" />
-  <meta name="keywords" content="quizmas, christmas quiz, music trivia, movie quiz, geography game, trivia, one-page quiz, IQ, game" />
-    
+  <meta name="description"
+    content=" the best quiz to test your knowledge and IQ in music, geography, movies and christmas in a fast and fun way. Test your knowledge and challenge your friends!" />
+  <meta name="keywords"
+    content="quizmas, christmas quiz, music trivia, movie quiz, geography game, trivia, one-page quiz, IQ, game" />
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -143,7 +147,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
       "timeRequired": "PT15M",
       "author": {
         "@type": "Organization",
-        "name": "QUIZMAS" 
+        "name": "QUIZMAS"
       };
     }
   </script>
@@ -160,12 +164,28 @@ silktideCookieBannerManager.updateCookieBannerConfig({
     <div id="credits-modal" class="modal">
       <div class="modal-content">
         <span class="close-cred-btn">&times;</span>
-        <h2 class="credits-title">CREDITS</h2>
-        <p class="credit-text">Music and sound effects referenced from <a href="https://freesound.org/" target="_blank" rel="noopener">Free sounds</a></p>
-        <p>Pictures and icons referenced from <a href="https://www.google.com/" target="_blank" rel="noopener">Google</a></p>
+        <h3 class="credits-title">Info</h3>
+        <p>Välkommen till vår quiz-app – Quizmas!</p>
+        <br>
+        <p><strong>Byggd av Grupp 6:</strong></p>
+        <p>Jesper Reijs</p>
+        <p>Kalle Salomonsson</p>
+        <p>Douglas Netzel</p>
+        <p>Ella Gabari</p>
+        <p>Moa Sjöberg</p>
+        <h4 class="credits-title">Referenser</h4>
+        <p class="credit-text">Ljudeffekter hämtade från <a href="https://freesound.org/" target="_blank"
+            rel="noopener">Freesound</a></p>
+        <p class="credit-text">Bilder hämtade från <a href="https://www.google.com/" target="_blank"
+            rel="noopener">Google</a></p>
+        <p class="credit-text">Ikoner hämtade från <a href="https://lucide.dev/" target="_blank"
+            rel="noopener">Lucide</a></p>
+        <br>
+        <h4 class="credits-title">Inställningar</h4>
+        <button id="clear-players-button">Töm spelardata</button>
       </div>
     </div>
-<!---->
+    <!---->
     <div id="highscore-modal" class="modal">
       <div class="modal-content">
         <span class="close-btn">&times;</span>
@@ -174,11 +194,11 @@ silktideCookieBannerManager.updateCookieBannerConfig({
       </div>
     </div>
     <div class="view-container active" id="name-container">
-      
+
       <div class="logo-container">
         <div class="version-container">
-        <p>v. 1.0</p>
-      </div>
+          <p>v. 1.0</p>
+        </div>
         <img src="./images/quizmas-logo.png" class="logo" />
         <h1 class="header">QUIZMAS</h1>
       </div>
@@ -186,7 +206,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
         <input type="text" placeholder="Vad heter du?" id="name-input-field" />
         <button type="submit" id="name-input-button"><i data-lucide="play"></i></button>
       </form>
-      
+
       <!--Lista med valbara användare från localStorage-->
       <div id="player-choice">
         <h3>Tidigare spelare:</h3>
@@ -221,13 +241,13 @@ silktideCookieBannerManager.updateCookieBannerConfig({
     </div>
 
     <div class="results-container view-container" id="results-container">
-      
+
 
       <div id="high-score-view">
         <h2>Resultat:</h2>
         <div id="player-score">0</div>
-        <h3>Korrekta svar:</h2>
-      <div id="player-total-score-display"></div>
+
+        <div id="player-total-score-display"></div>
 
         <ol id="high-score"></ol>
       </div>
@@ -238,9 +258,9 @@ silktideCookieBannerManager.updateCookieBannerConfig({
       <h2>Quiz container</h2>
       <div id="answer-check-display" class="answer-check-label"></div>
     </div>
-<script>
-  lucide.createIcons();
-</script>
+    <script>
+      lucide.createIcons();
+    </script>
 </body>
 
 </html>

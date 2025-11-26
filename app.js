@@ -52,7 +52,7 @@ let playersArray = [];
 
 const restartBtn = document.getElementById("restart-button");
 
-///////////////////////
+/////////////////////////////////////////////////////////////
 
 /////SÄTTER DEFAULT VÄRDEN FÖR INDEXEN FÖR FRÅGORNA OCH POÄNG
 let questionIndex = -1;
@@ -66,7 +66,6 @@ nameInputField.addEventListener("focus", () => {
     JSON.parse(localStorage.getItem("playerScoreHistory")) || [];
 
   if (playerNames.length > 0) {
-    //playerChoice.style.visibility = "visible";
     playerChoice.classList.add("active");
     playerNames.forEach((name) => {
       let span = document.createElement("span");
@@ -89,7 +88,9 @@ nameInputField.addEventListener("focus", () => {
 //Spara namnet och gå vidare till theme select
 nameInputBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  playerName = nameInputField.value.trim() || "Tomtenisse"; //Tar bort empy spaces (AI)
+  playerName = nameInputField.value.trim() || "Tomtenisse"; //Tar bort empty spaces och sätter Tomtenisse som default namn
+
+  //Spara namn i localstorage
   nameView.classList.remove("active");
   themeSelectView.classList.add("active");
   creditsBtn.style.display = "none";
@@ -115,14 +116,13 @@ async function fetchQuiz(themeChoice) {
     }
 
     const data = await response.json();
-    // Use the themeChoice to select the correct theme array
     const selectedTheme = data.themes[themeChoice];
     displayQuiz(selectedTheme);
   } catch (error) {
     console.error("Type of error", error);
   }
 }
-////Credits modal
+//INFO MODAL 
 const creditsBtn = document.createElement("button");
 creditsBtn.innerHTML = '<i data-lucide="info"></i>';
 creditsBtn.classList.add("credits-button");
@@ -160,6 +160,7 @@ const modal = document.getElementById("highscore-modal");
 const closeBtn = document.querySelector(".close-btn");
 const highscoreList = document.getElementById("high-score");
 
+//Rensar localstorage för spelardata
 clearPlayerDataBtn.addEventListener("click", () => {
   localStorage.removeItem("playerScoreHistory");
 });
@@ -189,7 +190,7 @@ function showHighscores() {
       //IKONER FÖR 4-5
       icon = '<i data-lucide="award" class="trophy-other"></i>';
     }
-
+    // SÄTTER INNAMHÅLLET I LI-ELEMENTET
     li.innerHTML = `
       <span class="trophy-container">${icon}</span>
       <span class="player-info">
@@ -197,10 +198,6 @@ function showHighscores() {
         <span class="player-score">${a.score} poäng</span>
       </span>
     `;
-
-    if (index < 3) {
-      li.classList.add(`place-${index + 1}`);
-    }
 
     highScore.appendChild(li);
   });
@@ -214,7 +211,7 @@ function showHighscores() {
   }
 }
 
-// EVENTLYSSNARE FÖR STORA OCH LILLA POKALKNAPPEN
+// EVENTLYSSNARE FÖR STORA OCH LILLA HIGHSCORE KNAPPEN
 highscoreBtn.addEventListener("click", function () {
   showHighscores();
   modal.style.display = "flex";
@@ -245,7 +242,7 @@ window.addEventListener("click", (event) => {
   }
 });
 
-//FÅR DET ATT SNÖA!
+//FÅR DET ATT SNÖA! TOGGLA SNÖEFFEKTEN :)
 let snowButton = document.createElement("button");
 let snowing = false;
 snowButton.innerHTML = `<i data-lucide="snowflake"></i>`;
@@ -291,6 +288,10 @@ mainContainer.appendChild(muteBtn);
 //DENNA FUNKTION IMPORTERAS OCH KÖRS I sound-effects.js
 setupMuteButton(muteBtn);
 
+////////////////////
+/////////////////////////////////HÄR BÖRJAR QUIZZET/////////////////////////
+///////////////////
+
 ///VISA VALT TEMA I QUIZ CONTAINERN (SKAPAR ELEMENT FÖR FRÅGOR OCH SVARSKNAPPAR)
 function displayQuiz(themes) {
   let recentScores = JSON.parse(localStorage.getItem("playerScoreHistory"));
@@ -317,37 +318,39 @@ function displayQuiz(themes) {
   questionImage.style.backgroundRepeat = "no-repeat";
   quizView.appendChild(questionImage);
 
-  //////
-
+  ///////////////SKAPAR ELEMENT FÖR FRÅGETEXT OCH SVARSKNAPPAR/////////////
   const questionText = document.createElement("p");
   questionText.innerHTML = `${themes[questionIndex].question}`;
   questionText.classList.add("question-text");
   quizView.appendChild(questionText);
 
+  //////SKAPAR PROGRESS COUNTER OCH VISAR FRÅGA X AV Y/////
   let progressCounter = document.createElement("div");
   progressCounter.classList.add("progress-counter");
   progressCounter.textContent = `${questionIndex + 1} / ${arrLength}`;
   quizView.appendChild(progressCounter);
 
+//////SKAPAR ELEMENT FÖR ATT VISA OM SVARET VAR RÄTT ELLER FEL/////
   let answerCheck = document.createElement("p");
   answerCheck.innerHTML = ``;
   answerCheck.classList.add("answer-check-text");
   quizView.appendChild(answerCheck);
 
+//////SKAPAR NÄSTA FRÅGA KNAPP/////
   let nextBtn = document.createElement("button");
   nextBtn.innerHTML = `Nästa fråga &#8594;`;
   nextBtn.classList.add("next-question-button");
   nextBtn.style.display = "none";
   quizView.appendChild(nextBtn);
 
-  ////NÄSTA-KNAPP EFTER VARJE FRÅGA
-  ////IFALL MAN NÅTT GRÄNSEN PÅ ANTAL FRÅGOR SÅ STOPPAR DEN OCH VISAR RESULTS
+  ////EVENTLYSSNARE IFALL MAN NÅTT GRÄNSEN PÅ ANTAL FRÅGOR SÅ STOPPAR DEN OCH VISAR RESULTS
   nextBtn.addEventListener("click", function () {
     if (questionIndex < arrLength - 1) {
       stop();
       timeUpMessage.style.display = "none";
       displayQuiz(themes);
     } else {
+      /////VISAR RESULTAT EFTER SISTA FRÅGAN
       stop();
       timeUpMessage.style.display = "none";
       quizView.classList.remove("active");
@@ -355,7 +358,8 @@ function displayQuiz(themes) {
       playerScore.innerHTML = `${playerName}, Poäng: ${playerPoints} / ${themes.length}`;
       playerTotalScore = playerPoints;
       playSound(quizFinished);
-
+      
+      //SPARAR OCH UPPDATERAR POÄNG I LOCALSTORAGE
       let thisPlayer = {
         name: playerName,
         score: Number(playerTotalScore),
@@ -365,9 +369,9 @@ function displayQuiz(themes) {
           playersArray[i].score += playerTotalScore;
         }
       }
-
+     //KOLLAR OM SPELAREN FINNS I ARRAYEN
       let found = false;
-
+    
       for (let i = 0; i < playersArray.length; i++) {
         if (playersArray[i].name == playerName) {
           found = true;
@@ -399,7 +403,7 @@ function displayQuiz(themes) {
 
           check.style.fontSize = "2rem";
           check.style.marginLeft = "5px";
-
+         //// UPPREPAR FRÅGAN OCH VISAR RÄTT SVAR MED CHECKMARK ELLER KRYSS
           let question = document.createElement("p");
           question.textContent = `${themes[i].question} - `;
           question.appendChild(checkAnswer);
@@ -412,25 +416,16 @@ function displayQuiz(themes) {
       showCorrectAnswers();
 
       questionIndex = -1;
-
+      ////OM SPELAREN INTE FINNS I ARRAYEN LÄGGS DEN TILL
       if (found == false) {
         playersArray.push(thisPlayer);
       }
-
+      ////SPARAR ARRAYEN MED SPELARE I LOCALSTORAGE
       localStorage.setItem("playerScoreHistory", JSON.stringify(playersArray));
-
-      let highScoreArray = playersArray
-        .slice()
-        .sort((a, b) => Number(b.score) - Number(a.score));
-
-      highScoreArray.slice(0, 5).forEach((a) => {
-        let li = document.createElement("li");
-        li.innerHTML = `Spelare: ${a.name}, Score: ${a.score}`;
-        highScore.appendChild(li);
-      });
     }
   });
 
+///////HÄMTAR SVARSALTERNATIV OCH RÄTT SVAR FRÅN JSON/////
   let options = themes[questionIndex].options;
   let correctIndex = themes[questionIndex].answer;
 
@@ -494,7 +489,7 @@ function displayQuiz(themes) {
   ) {
     lucide.createIcons();
   }
-
+  /////TILLBAKAKNAPPENS EVENTLYSSNARE
   backToMainBtn.addEventListener("click", function () {
     stop();
     quizView.classList.remove("active");
@@ -548,7 +543,7 @@ function displayQuiz(themes) {
     if (nextButton) {
       nextButton.style.display = "block";
     }
-
+    ///// DISABLEAR SVARSKNAPPARNA NÄR TIDEN TAR SLUT
     const answerButtons = quizView.querySelectorAll(".answer-button");
     answerButtons.forEach((btn) => {
       btn.disabled = true;

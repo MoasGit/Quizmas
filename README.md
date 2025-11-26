@@ -49,6 +49,9 @@ När ett tema valts:
 
 ### **Svagheter**
 
-- Vi har arbetat med få moduler → vilket skapade fler merge conflicts
+- Vi har arbetat med få moduler → vilket skapade fler merge conflicts och sämre struktur
+- Utmaningar med att stylea desktop first
+- Hade kunnat skapa fler HTML element (tex knappar i HTML istället för i JS)
+
 
 ---

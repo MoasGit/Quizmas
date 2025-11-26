@@ -344,7 +344,7 @@ span.incorrect {
   background-image: url("images/theme-geography.jpg");
 }
 
-/* Hover effect - scale the pseudo-element */
+
 .theme-music-container:hover::before,
 .theme-christmas-container:hover::before,
 .theme-movies-container:hover::before,
@@ -527,6 +527,7 @@ span.incorrect {
     transform: scale(1);
   }
 }
+
 /* Back to main meny knapp */
 .back-to-main-button {
   position: absolute;
@@ -1029,9 +1030,6 @@ body.snow-active .snowflake {
 
 .progress-counter {
   position: absolute;
-  /* top: 2px; */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
   background-color: var(--background-red);
   color: #fff;
   border: 1px solid #fff;

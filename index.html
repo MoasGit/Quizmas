@@ -145,24 +145,34 @@
       });
     </script>
     <link rel="icon" href="quizmas-logo.ico" />
-    <title>QUIZMAS</title>
+    <title>QUIZMAS - Julquiz i Musik, Film, Geografi & Jul</title>
 
     <!--SEO-optimering-->
-    <meta
-      name="description"
-      content=" the best quiz to test your knowledge and IQ in music, geography, movies and christmas in a fast and fun way. Test your knowledge and challenge your friends!"
-    />
-    <meta
-      name="keywords"
-      content="quizmas, christmas quiz, music trivia, movie quiz, geography game, trivia, one-page quiz, IQ, game"
-    />
+    <meta name="description" content="Testa din kunskap med QUIZMAS! Ett roligt och utmanande julquiz om musik, geografi, filmer och jul. Utmana dina vänner och se vem som kan bäst. Spela gratis nu!" />
+  <meta name="keywords" content="quizmas, julquiz, musikfrågor, filmquiz, geografispel, trivia, julspel, kunskapstest, IQ-test, gratis quiz" />
+  <meta name="author" content="Quizmas Team" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://moasgit.github.io/Quizmas/" />
 
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:title" content="QUIZMAS - Det Ultimata Julquizet" />
+  <meta property="og:description" content="Testa din kunskap i musik, filmer, geografi och jul med QUIZMAS. Roligt, snabbt och utmanande!" />
+  <meta property="og:image" content="https://moasgit.github.io/Quizmas/images/quizmas-logo.png" />
+  <meta property="og:url" content="https://moasgit.github.io/Quizmas/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="sv_SE" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="QUIZMAS - Det Ultimata Julquizet" />
+  <meta name="twitter:description" content="Testa din kunskap i musik, filmer, geografi och jul!" />
+  <meta name="twitter:image" content="https://moasgit.github.io/Quizmas/images/quizmas-logo.png" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Quiz",
         "name": "QUIZMAS: The Ultimate Multi-Theme Quiz",
-        "about": "the best quiz to test your knowledge and IQ in music, geography, movies and christmas in a fast and fun way",
+        "about": "Testa dina kunskaper i musik, film, geografi och jul med Quizmas! Spela gratis julquiz online, utmana vänner och klättra på topplistor. Perfekt julunderhållning för hela familjen!",
         "educationalLevel": "General Knowledge",
         "timeRequired": "PT15M",
         "author": {
@@ -184,9 +194,10 @@
       ></iframe
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div class="main-container">
+
+    <main class="main-container">
       <div id="credits-modal" class="modal">
-        <div class="modal-content">
+        <aside class="modal-content">
           <span class="close-cred-btn">&times;</span>
           <h3 class="credits-title">Info</h3>
           <p>Välkommen till vår quiz-app – Quizmas!</p>
@@ -220,16 +231,16 @@
           <h4 class="credits-title">Inställningar</h4>
           <button id="clear-players-button">Töm spelardata</button>
         </div>
-      </div>
+      </aside>
       <!---->
       <div id="highscore-modal" class="modal">
-        <div class="modal-content">
+        <aside class="modal-content">
           <span class="close-btn">&times;</span>
           <h2 class="highscore-title">Toppspelare</h2>
           <ul id="high-score" class="highscore-ul-style"></ul>
-        </div>
+        </aside>
       </div>
-      <div class="view-container active" id="name-container">
+      <section class="view-container active" id="name-container">
         <div class="logo-container">
           <div class="version-container">
             <p>v. 1.0</p>
@@ -258,34 +269,39 @@
           <div id="player-list"></div>
         </div>
 
-        <div class="copyright-container">
+        <footer class="copyright-container">
           <p class="copyright-text">
             © Quizmas 2025 | Grupp 6: Moa, Kalle, Jesper, Ella, Douglas
           </p>
-        </div>
-      </div>
-      <div class="view-container" id="theme-select-container">
+        </footer>
+      </section>
+      <section class="view-container" id="theme-select-container">
         <button id="switch-user-button">
           <i data-lucide="user-round-pen"></i>
         </button>
         <h3 id="name-display">Tomtenisse</h3>
 
         <h3 class="choose-theme-text">Välj ett tema</h3>
-        <div class="theme-music-container">
+        <nav class="theme-music-container">
           <button id="theme-music">Musik</button>
-        </div>
-        <div class="theme-movies-container">
+        </nav>
+        <nav class="theme-movies-container">
           <button id="theme-movies">Filmer & TV-serier</button>
-        </div>
-        <div class="theme-geography-container">
+        </nav>
+        <nav class="theme-geography-container">
           <button id="theme-geography">Geografi</button>
-        </div>
-        <div class="theme-christmas-container">
+        </nav>
+        <nav class="theme-christmas-container">
           <button id="theme-christmas">Jul</button>
-        </div>
-      </div>
+        </nav>
+      </section>
 
-      <div class="results-container view-container" id="results-container">
+      <section class="quiz-container view-container" id="quiz-container">
+        <h2>Quiz container</h2>
+        <div id="answer-check-display" class="answer-check-label"></div>
+      </section>
+
+      <section class="results-container view-container" id="results-container">
         <div id="high-score-view">
           <h2>Resultat:</h2>
           <div id="player-score">0</div>
@@ -293,13 +309,8 @@
           <div id="player-total-score-display"></div>
         </div>
         <button id="restart-button">Starta ett nytt quiz</button>
-      </div>
-
-      <div class="quiz-container view-container" id="quiz-container">
-        <h2>Quiz container</h2>
-        <div id="answer-check-display" class="answer-check-label"></div>
-      </div>
-    </div>
+      </section>
+    </main>
     <script>
       lucide.createIcons();
     </script>

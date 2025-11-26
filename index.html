@@ -21,6 +21,7 @@
       })(window, document, "script", "dataLayer", "GTM-P63SH3X2");
     </script>
     <!-- End Google Tag Manager -->
+     
     <!-- Google Analytics -->
     <script
       async
@@ -35,6 +36,8 @@
       gtag("js", new Date());
       gtag("config", "G-GTD2BXM6NY");
     </script>
+    <!-- End Google Analytics -->
+
     <script type="module" src="app.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -48,13 +51,16 @@
       src="https://kit.fontawesome.com/2090fae52f.js"
       crossorigin="anonymous"
     ></script>
-    <!-- Production version -->
+
+    <!-- Lucid ikonbibliotek -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <link
       rel="stylesheet"
       id="silktide-consent-manager-css"
       href="./cookie-banner/silktide-consent-manager.css"
     />
+
     <script src="./cookie-banner/silktide-consent-manager.js"></script>
 
     <script>
@@ -195,7 +201,10 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <!-- Content -->
     <main class="main-container">
+
+      <!-- Info modal -->
       <div id="credits-modal" class="modal">
         <aside class="modal-content">
           <span class="close-cred-btn">&times;</span>
@@ -232,7 +241,8 @@
           <button id="clear-players-button">Töm spelardata</button>
         </div>
       </aside>
-      <!---->
+
+      <!-- Highscore modal-->
       <div id="highscore-modal" class="modal">
         <aside class="modal-content">
           <span class="close-btn">&times;</span>
@@ -240,6 +250,8 @@
           <ul id="high-score" class="highscore-ul-style"></ul>
         </aside>
       </div>
+
+      <!-- Start container -->
       <section class="view-container active" id="name-container">
         <div class="logo-container">
           <div class="version-container">
@@ -263,22 +275,28 @@
           </button>
         </form>
 
-        <!--Lista med valbara användare från localStorage-->
+        <!--Lista med valbara användare (tidigare spelare) från localStorage-->
         <div id="player-choice">
           <h3>Tidigare spelare:</h3>
           <div id="player-list"></div>
         </div>
 
+        <!-- Copyright footer -->
         <footer class="copyright-container">
           <p class="copyright-text">
             © Quizmas 2025 | Grupp 6: Moa, Kalle, Jesper, Ella, Douglas
           </p>
         </footer>
       </section>
+
+      <!--Temaval container -->
       <section class="view-container" id="theme-select-container">
+
+        <!-- Byt användare-knapp -->
         <button id="switch-user-button">
           <i data-lucide="user-round-pen"></i>
         </button>
+
         <h3 id="name-display">Tomtenisse</h3>
 
         <h3 class="choose-theme-text">Välj ett tema</h3>
@@ -296,11 +314,13 @@
         </nav>
       </section>
 
+      <!-- Visa valt Quiz -->
       <section class="quiz-container view-container" id="quiz-container">
         <h2>Quiz container</h2>
         <div id="answer-check-display" class="answer-check-label"></div>
       </section>
 
+      <!-- Visa resultat-->
       <section class="results-container view-container" id="results-container">
         <div id="high-score-view">
           <h2>Resultat:</h2>
@@ -308,9 +328,13 @@
 
           <div id="player-total-score-display"></div>
         </div>
+
+        <!-- Starta om-knapp -->
         <button id="restart-button">Starta ett nytt quiz</button>
       </section>
     </main>
+
+    <!-- Ladda in ikonbibliotek-->
     <script>
       lucide.createIcons();
     </script>
